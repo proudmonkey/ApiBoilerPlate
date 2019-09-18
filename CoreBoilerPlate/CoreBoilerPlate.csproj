@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="AutoWrapper.Core" Version="1.1.1-rc" />
+    <PackageReference Include="Dapper" Version="2.0.4" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.5.0-preview5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-rc1.19456.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-rc1-19462-10" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.0.1-dev-00099" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.1-dev-00209" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00824" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0-dev-00850" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0-rc1.19456.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="API\v2\" />
+    <Folder Include="Logs\" />
+  </ItemGroup>
+
+</Project>
