@@ -1,7 +1,7 @@
 # CoreBoilerPlate
 A template project for building ASP.NET Core APIs
 
-#Steps to run the template
+## Steps to run the template
 
 **STEP 1:** Create a Test local Database:
 
