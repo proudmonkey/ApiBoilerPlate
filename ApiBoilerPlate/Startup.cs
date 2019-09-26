@@ -1,8 +1,6 @@
+using ApiBoilerPlate.Helpers.Extensions;
 using AutoMapper;
 using AutoWrapper;
-using ApiBoilerPlate.DTO;
-using ApiBoilerPlate.Helpers.Extensions;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
