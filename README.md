@@ -3,7 +3,7 @@ A template project for building ASP.NET Core APIs
 
 ## Install the extension from the Visual Studio Marketplace
 
-1. Fire up Visual Studio 2019, on the `Tools` menu, click `Extensions and Updates`.
+1. Fire up Visual Studio 2019, on the `Extensions` menu, click `Manage Extensions`.
 2. Click `Online` and then search for `ApiBoilerPlate`.
 3. Click `Download`. The extension is then scheduled for install.
 
