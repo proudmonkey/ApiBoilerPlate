@@ -3,6 +3,15 @@ A template project for building ASP.NET Core APIs
 
 # Tools and Frameworks Used
 
+* .NET Core 3.0
+* ASP.NET Core
+* Dapper
+* AutoMapper
+* AutoWrapper.Core
+* Swashbuckle.AspNetCore
+* FluentValidation.AspNetCore
+* Serilog.AspNetCore
+
 ## Steps to run the template
 
 **STEP 1:** Create a Test local Database:
