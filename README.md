@@ -12,13 +12,13 @@ To complete the installation, close all instances of Visual Studio.
 ## Tools and Frameworks Used
 
 * .NET Core 3.0
-* ASP.NET Core
-* Dapper
-* AutoMapper
-* AutoWrapper.Core
-* Swashbuckle.AspNetCore
-* FluentValidation.AspNetCore
-* Serilog.AspNetCore
+* ASP.NET Core - For build RESTful APIs
+* [Dapper](https://dapper-tutorial.net/dapper) - For data access.
+* [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
+* [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request exceptions and consistent HTTP response format.
+* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For API documentation
+* [FluentValidation.AspNetCore](https://fluentvalidation.net/aspnet) - For Model validations
+* [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilties
 
 ## Steps to run the template
 
