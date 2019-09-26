@@ -1,4 +1,4 @@
-<img align="right" src="/logo.png" />
+<img align="right" src="ApiBoilerPlate/logo.PNG" />
 
 # ApiBoilerPlate
 A project template for building ASP.NET Core APIs using .NET Core 3.x
