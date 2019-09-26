@@ -1,7 +1,7 @@
 <img align="right" src="logo.PNG" />
 
 # ApiBoilerPlate
-A project template for building ASP.NET Core APIs using .NET Core 3.x
+A project template for building ASP.NET Core APIs using .NET Core 3.x (the latest/fastest version of .NET Core to date). The goal is to help you get started setting up the base structure of your app and it's dependencies so you can focus on implementing business specific requirements without you having to copy and paste the base structure of the project, and installing its dependencies all over again. This will speedup the development time when building new API project while enforcing standards for all your apps.
 
 ## Tools and Frameworks Used
 
