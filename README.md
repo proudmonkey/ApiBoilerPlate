@@ -25,7 +25,8 @@ To complete the installation, close all instances of Visual Studio.
 1. Open Visual Studio 2019 and then select `Create New Project` box
 2. In the search bar, type `ApiBoilerPlate`.
 3. Click the `ApiBoilerPlate` item and then click `Next`.
-4. Follow the wizard to generate the files for you.
+4. Name your project to whatever you like and then click `Create`.
+5. Visual Studio should generate the files for you.
 
 ## Steps to run the template
 
