@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
-namespace CoreBoilerPlate.Data
+namespace ApiBoilerPlate.Data
 {
     public abstract class DBFactoryBase
     {

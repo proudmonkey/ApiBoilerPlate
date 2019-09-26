@@ -1,6 +1,6 @@
-﻿using CoreBoilerPlate.Domain.Entity;
+﻿using ApiBoilerPlate.Domain.Entity;
 
-namespace CoreBoilerPlate.Contracts
+namespace ApiBoilerPlate.Contracts
 {
     public interface IPersonManager : IRepository<Person>
     {

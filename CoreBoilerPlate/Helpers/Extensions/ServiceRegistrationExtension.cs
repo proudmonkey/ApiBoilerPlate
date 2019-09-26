@@ -2,9 +2,9 @@
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using CoreBoilerPlate.Contracts;
+using ApiBoilerPlate.Contracts;
 
-namespace CoreBoilerPlate.Helpers.Extensions
+namespace ApiBoilerPlate.Helpers.Extensions
 {
     public static class ServiceRegistrationExtension
     {

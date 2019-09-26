@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using AutoWrapper.Extensions;
 using AutoWrapper.Wrappers;
-using CoreBoilerPlate.Contracts;
-using CoreBoilerPlate.Domain.Entity;
-using CoreBoilerPlate.DTO;
+using ApiBoilerPlate.Contracts;
+using ApiBoilerPlate.Domain.Entity;
+using ApiBoilerPlate.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CoreBoilerPlate.API.v1
+namespace ApiBoilerPlate.API.v1
 {
     [Route("api/v1/[controller]")]
     [ApiController]

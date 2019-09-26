@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreBoilerPlate.Contracts
+namespace ApiBoilerPlate.Contracts
 {
     public interface IServiceRegistration
     {

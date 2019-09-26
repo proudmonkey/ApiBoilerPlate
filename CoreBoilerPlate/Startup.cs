@@ -1,7 +1,7 @@
 using AutoMapper;
 using AutoWrapper;
-using CoreBoilerPlate.DTO;
-using CoreBoilerPlate.Helpers.Extensions;
+using ApiBoilerPlate.DTO;
+using ApiBoilerPlate.Helpers.Extensions;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace CoreBoilerPlate
+namespace ApiBoilerPlate
 {
     public class Startup
     {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using System;
 
-namespace CoreBoilerPlate.DTO
+namespace ApiBoilerPlate.DTO
 {
     public class PersonDTO
     {

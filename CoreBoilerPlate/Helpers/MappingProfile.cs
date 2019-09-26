@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CoreBoilerPlate.Domain.Entity;
-using CoreBoilerPlate.DTO;
+using ApiBoilerPlate.Domain.Entity;
+using ApiBoilerPlate.DTO;
 
-namespace CoreBoilerPlate.Helpers
+namespace ApiBoilerPlate.Helpers
 {
     public class MappingProfile: Profile
     {

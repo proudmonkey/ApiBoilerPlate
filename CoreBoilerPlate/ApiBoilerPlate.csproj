@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\v2\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 

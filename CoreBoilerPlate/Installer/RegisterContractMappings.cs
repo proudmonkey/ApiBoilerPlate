@@ -1,9 +1,9 @@
-﻿using CoreBoilerPlate.Contracts;
-using CoreBoilerPlate.Domain;
+﻿using ApiBoilerPlate.Contracts;
+using ApiBoilerPlate.Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreBoilerPlate.Installer
+namespace ApiBoilerPlate.Installer
 {
     public class RegisterContractMappings : IServiceRegistration
     {

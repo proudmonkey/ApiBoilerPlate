@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace CoreBoilerPlate.Contracts
+namespace ApiBoilerPlate.Contracts
 {
     public interface IRepository<T>
     {

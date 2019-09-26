@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreBoilerPlate.Domain.Entity
+namespace ApiBoilerPlate.Domain.Entity
 {
     public class Person
     {

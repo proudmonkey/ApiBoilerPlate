@@ -1,10 +1,10 @@
-﻿using CoreBoilerPlate.Contracts;
-using CoreBoilerPlate.DTO;
+﻿using ApiBoilerPlate.Contracts;
+using ApiBoilerPlate.DTO;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CoreBoilerPlate.Installer
+namespace ApiBoilerPlate.Installer
 {
     public class RegisterModelValidators: IServiceRegistration
     {
