@@ -3,7 +3,7 @@ using ApiBoilerPlate.Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ApiBoilerPlate.Installer
+namespace ApiBoilerPlate.Installers
 {
     public class RegisterContractMappings : IServiceRegistration
     {
