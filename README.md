@@ -1,5 +1,7 @@
+<img align="right" src="/ApiBoilerPlate/logo.png" />
+
 # ApiBoilerPlate
-A template project for building ASP.NET Core APIs using .NET Core 3.x
+A project template for building ASP.NET Core APIs using .NET Core 3.x
 
 ## Tools and Frameworks Used
 
