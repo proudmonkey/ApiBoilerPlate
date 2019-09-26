@@ -1,5 +1,5 @@
 # ApiBoilerPlate
-A template project for building ASP.NET Core APIs
+A template project for building ASP.NET Core APIs using .NET Core 3.x
 
 ## Install the extension from the Visual Studio Marketplace
 
