@@ -1,14 +1,6 @@
 # ApiBoilerPlate
 A template project for building ASP.NET Core APIs using .NET Core 3.x
 
-## Install the extension from the Visual Studio Marketplace
-
-1. Fire up Visual Studio 2019, on the `Extensions` menu, click `Manage Extensions`.
-2. Click `Online` and then search for `ApiBoilerPlate`.
-3. Click `Download`. The extension is then scheduled for install.
-
-To complete the installation, close all instances of Visual Studio.
-
 ## Tools and Frameworks Used
 
 * [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
@@ -19,6 +11,21 @@ To complete the installation, close all instances of Visual Studio.
 * [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For API documentation
 * [FluentValidation.AspNetCore](https://fluentvalidation.net/aspnet) - For Model validations
 * [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilties
+
+## Install the extension from the Visual Studio Marketplace
+
+1. Fire up Visual Studio 2019, on the `Extensions` menu, click `Manage Extensions`.
+2. Click `Online` and then search for `ApiBoilerPlate`.
+3. Click `Download`. The extension is then scheduled for install.
+
+To complete the installation, close all instances of Visual Studio.
+
+## Create a new Project from ApiBoilerPlate Extension
+
+1. Open Visual Studio 2019 and then select `Create New Project` box
+2. In the search bar, type `ApiBoilerPlate`.
+3. Click the `ApiBoilerPlate` item and then click `Next`.
+4. Follow the wizard to generate the files for you.
 
 ## Steps to run the template
 
