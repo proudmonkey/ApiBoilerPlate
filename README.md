@@ -9,6 +9,7 @@ A template project for building ASP.NET Core APIs
 * AutoMapper
 * AutoWrapper.Core
 * Swashbuckle.AspNetCore
+* FluentValidation.AspNetCore
 * Serilog.AspNetCore
 
 ## Steps to run the template
