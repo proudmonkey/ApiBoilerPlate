@@ -11,8 +11,8 @@ To complete the installation, close all instances of Visual Studio.
 
 ## Tools and Frameworks Used
 
-* .NET Core 3.0
-* ASP.NET Core - For build RESTful APIs
+* [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
+* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) - For build RESTful APIs
 * [Dapper](https://dapper-tutorial.net/dapper) - For data access.
 * [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
 * [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request exceptions and consistent HTTP response format.
