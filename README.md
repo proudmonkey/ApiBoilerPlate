@@ -69,3 +69,12 @@ If you have a different `database` and `table` name then you need to change the 
 ## Walkthrough
 
 [ApiBoilerPlate: A Project Template for Building ASP.NET Core APIs](http://vmsdurano.com/apiboilerplate-a-project-template-for-building-asp-net-core-apis/)
+
+## Contributor
+
+* **Vincent Maverick Durano** - [Blog](http://vmsdurano.com/)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
