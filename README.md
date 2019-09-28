@@ -14,7 +14,7 @@ If you are looking for a project template for ASP.NET Core API that you can reus
 * [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request exceptions and consistent HTTP response format.
 * [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For API documentation
 * [FluentValidation.AspNetCore](https://fluentvalidation.net/aspnet) - For Model validations
-* [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilties
+* [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilities
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
 
