@@ -6,6 +6,11 @@ A simple yet organized [project template](https://marketplace.visualstudio.com/i
 
 If you are looking for a project template for ASP.NET Core API that you can reuse across your team, or if you are new to ASP.NET Core and would like to get up to speed on how it works without having you to configure most of the basic features that an API will have, then this is for you.
 
+# How to get it?
+There are two ways to install the template:
+* From Nuget with .NET CLI: [ApiBoilerPlate.AspNetCore](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore/1.0.1)
+* From VSIX with Visual Studio Market Place: [ApiBoilerPlate.AspNetCore](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt)
+
 ## Tools and Frameworks Used
 
 * [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
@@ -19,7 +24,15 @@ If you are looking for a project template for ASP.NET Core API that you can reus
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
 
-## Install the extension from the Visual Studio Marketplace
+## Install the Template from .NET CLI
+1. Install the latest [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+2. Open the command line
+3. Run `dotnet new --install ApiBoilerPlate.AspNetCore`. This will install the template in your machine.
+4. Create a new directory for your project. For example: `mkdir source\SampleApi`
+5. Switch the command directory to your project directory. For example: `cd source\SampleApi`
+6. Run `dotnet new apiboilerplate --name "MyApi"`. This will generate the project template within the `source\SampleApi` directory.
+
+## Install the Template from the Visual Studio Marketplace
 
 1. Fire up Visual Studio 2019, click `Continue without code` link.
 2. On the `Extensions` menu, click `Manage Extensions`.
