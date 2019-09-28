@@ -1,6 +1,6 @@
 <img align="right" src="logo.PNG" />
 
-# ApiBoilerPlate.AspNetCore [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt)
+# ApiBoilerPlate.AspNetCore [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) [![Nuget](https://img.shields.io/nuget/dt/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 
 A simple yet organized [project template](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) for building ASP.NET Core APIs using .NET Core 3.x (the latest/fastest version of .NET Core to date). The goal is to help you get up to speed when setting up the core structure of your app and its dependencies. This enables you to focus on implementing business specific requirements without you having to copy and paste the core structure of your project, and installing its dependencies all over again. This will speed up your development time when building new API project while enforcing standard project structure with its dependencies and configurations for all your apps.
 
