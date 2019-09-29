@@ -26,11 +26,8 @@ Keep in mind that you can always replace and choose whatever framework you want 
 
 ## Install the Template from .NET CLI
 1. Install the latest [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Open the command line
-3. Run `dotnet new --install ApiBoilerPlate.AspNetCore`. This will install the template in your machine.
-4. Create a new directory for your project. For example: `mkdir source\SampleApi`
-5. Switch the command directory to your project directory. For example: `cd source\SampleApi`
-6. Run `dotnet new apiboilerplate --name "MyApi"`. This will generate the project template within the `source\SampleApi` directory.
+2. Run `dotnet new -i apiboilerplate.aspnetcore`. This will install the template in your machine.
+3. Run `dotnet new apiboilerplate --name "MyAPI"; -o samples`. This will generate the project template named `MyAPI` within the `samples` directory.
 
 ## Install the Template from the Visual Studio Marketplace
 
