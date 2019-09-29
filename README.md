@@ -8,7 +8,7 @@ If you are looking for a project template for ASP.NET Core API that you can reus
 
 # How to get it?
 There are two ways to install the template:
-* From Nuget with .NET CLI: [ApiBoilerPlate.AspNetCore](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore/1.0.1)
+* From Nuget with .NET CLI: [ApiBoilerPlate.AspNetCore](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 * From VSIX Market Place with Visual Studio: [ApiBoilerPlate.AspNetCore](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt)
 
 ## Tools and Frameworks Used
