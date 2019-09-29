@@ -29,6 +29,10 @@ Keep in mind that you can always replace and choose whatever framework you want 
 2. Run `dotnet new -i apiboilerplate.aspnetcore`. This will install the template in your machine.
 3. Run `dotnet new apiboilerplate --name "MyAPI"; -o samples`. This will generate the project template named `MyAPI` within the `samples` directory.
 
+Once installed, you should see this output below:
+
+> The template "ASP.NET Core API Template for .NET Core 3.x" was created successfully.  
+
 ## Install the Template from the Visual Studio Marketplace
 
 1. Fire up Visual Studio 2019, click `Continue without code` link.
