@@ -25,7 +25,7 @@ namespace ApiBoilerPlate.Domain
 
         public async Task<long> CreateAsync(Person person)
         {
-            string sqlQuery = $@"INSERT INTO Person (FirstName, LastName, DateOfBirth) 
+            var sqlQuery = $@"INSERT INTO Person (FirstName, LastName, DateOfBirth) 
                                      VALUES (@FirstName, @LastName, @DateOfBirth)
                                      SELECT CAST(SCOPE_IDENTITY() as bigint)";
 
@@ -33,7 +33,7 @@ namespace ApiBoilerPlate.Domain
         }
         public async Task<bool> UpdateAsync(Person person)
         {
-            string sqlQuery = $@"IF EXISTS (SELECT 1 FROM Person WHERE ID = @ID) 
+            var sqlQuery = $@"IF EXISTS (SELECT 1 FROM Person WHERE ID = @ID) 
                                             UPDATE Person SET FirstName = @FirstName, LastName = @LastName, DateOfBirth = @DateOfBirth
                                             WHERE ID = @ID";
 
@@ -41,7 +41,7 @@ namespace ApiBoilerPlate.Domain
         }
         public async Task<bool> DeleteAsync(object id)
         {
-            string sqlQuery = $@"IF EXISTS (SELECT 1 FROM Person WHERE ID = @ID)
+            var sqlQuery = $@"IF EXISTS (SELECT 1 FROM Person WHERE ID = @ID)
                                         DELETE Person WHERE ID = @ID";
 
             return await DbExecuteAsync<bool>(sqlQuery, new { id });

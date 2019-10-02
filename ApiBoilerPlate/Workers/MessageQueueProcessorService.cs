@@ -25,7 +25,7 @@ namespace ApiBoilerPlate.Workers
                 _logger.LogDebug($"MessageQueueProcessorService task doing background work.");
 
                 //TO DO:
-                //PubSub/Message Queue subcription and process message
+                //PubSub/Message Queue subscription and process message
                 //Save to DB
 
                 await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);

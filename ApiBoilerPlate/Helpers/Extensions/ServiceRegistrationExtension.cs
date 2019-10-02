@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using ApiBoilerPlate.Contracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ApiBoilerPlate.Contracts;
+using System;
+using System.Linq;
 
 namespace ApiBoilerPlate.Helpers.Extensions
 {

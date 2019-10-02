@@ -81,8 +81,6 @@ namespace ApiBoilerPlate
             {
                 endpoints.MapControllers();
             });
-
-          
         }
     }
 }

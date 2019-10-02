@@ -10,17 +10,13 @@ namespace ApiBoilerPlate.Data
     public abstract class DBFactoryBase
     {
         private readonly IConfiguration _config;
+
         public DBFactoryBase(IConfiguration config)
         {
             _config = config;
         }
 
-        internal IDbConnection DbConnection
-        {
-            get {
-                return new SqlConnection(_config.GetConnectionString("SQLDBConnectionString"));
-            }
-        }
+        internal IDbConnection DbConnection => new SqlConnection(_config.GetConnectionString("SQLDBConnectionString"));
 
         public virtual async Task<IEnumerable<T>> DbQueryAsync<T>(string sql, object parameters = null)
         {
