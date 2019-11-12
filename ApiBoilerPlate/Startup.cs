@@ -2,6 +2,7 @@ using ApiBoilerPlate.Helpers.Extensions;
 using AutoMapper;
 using AutoWrapper;
 using FluentValidation.AspNetCore;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +34,20 @@ namespace ApiBoilerPlate
             //Disable Automatic Model State Validation built-in to ASP.NET Core
             services.Configure<ApiBehaviorOptions>(opt => { opt.SuppressModelStateInvalidFilter = true; });
 
-            //Register MVC/Web API and add FluentValidation Support
+            //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
             services.AddControllers()
+                    .AddNewtonsoftJson()
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
+
+            //Setup JWT Authentication Handler with IdentityServer4
+            //http://docs.identityserver.io/en/latest/topics/apis.html
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                    .AddIdentityServerAuthentication(options =>
+                    {
+                       options.Authority = Configuration["AuthServer:BaseUrl"];
+                       options.RequireHttpsMetadata = false;
+                       options.ApiName = "api.boilerplate.core";
+                    });
 
             //Register Automapper
             services.AddAutoMapper(typeof(Helpers.MappingProfile));
@@ -74,8 +86,11 @@ namespace ApiBoilerPlate
 
             app.UseRouting();
 
-            //Uncomment to enable Auth
-            //app.UseAuthorization();
+            //adds authenticaton middleware to the pipeline so authentication will be performed automatically on each request to host
+            app.UseAuthentication();
+
+            //adds authorization middleware to the pipeline to make sure the Api endpoint cannot be accessed by anonymous clients
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
