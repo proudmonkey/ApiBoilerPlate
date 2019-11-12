@@ -34,13 +34,27 @@ namespace ApiBoilerPlate
             //Disable Automatic Model State Validation built-in to ASP.NET Core
             services.Configure<ApiBehaviorOptions>(opt => { opt.SuppressModelStateInvalidFilter = true; });
 
+            //Configure CORS to allow any origin, header and method. 
+            //Change the CORS policy based on your requirements.
+            //More info see: https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.0
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
+
             //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
             services.AddControllers()
                     .AddNewtonsoftJson()
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
 
             //Setup JWT Authentication Handler with IdentityServer4
-            //http://docs.identityserver.io/en/latest/topics/apis.html
+            //More info see: http://docs.identityserver.io/en/latest/topics/apis.html
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                     .AddIdentityServerAuthentication(options =>
                     {
@@ -72,6 +86,9 @@ namespace ApiBoilerPlate
                 app.UseHsts();
             }
 
+            //Enable CORS
+            app.UseCors("AllowAll");
+
             app.UseHttpsRedirection();
 
             //docs: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.0&tabs=visual-studio
@@ -81,15 +98,16 @@ namespace ApiBoilerPlate
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NET Core Template API V1");
             });
 
-            //enable AutoWrapper.Core
+            //Enable AutoWrapper.Core
+            //More info see: https://github.com/proudmonkey/AutoWrapper
             app.UseApiResponseAndExceptionWrapper();
 
             app.UseRouting();
 
-            //adds authenticaton middleware to the pipeline so authentication will be performed automatically on each request to host
+            //Adds authenticaton middleware to the pipeline so authentication will be performed automatically on each request to host
             app.UseAuthentication();
 
-            //adds authorization middleware to the pipeline to make sure the Api endpoint cannot be accessed by anonymous clients
+            //Adds authorization middleware to the pipeline to make sure the Api endpoint cannot be accessed by anonymous clients
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
