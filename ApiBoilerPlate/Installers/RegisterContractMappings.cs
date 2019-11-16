@@ -1,5 +1,5 @@
 ﻿using ApiBoilerPlate.Contracts;
-using ApiBoilerPlate.Domain;
+using ApiBoilerPlate.Data.DataManager;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

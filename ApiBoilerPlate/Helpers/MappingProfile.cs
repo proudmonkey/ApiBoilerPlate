@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ApiBoilerPlate.Domain.Entity;
+using ApiBoilerPlate.Data.Entity;
 using ApiBoilerPlate.DTO;
 
 namespace ApiBoilerPlate.Helpers

@@ -2,7 +2,7 @@
 using AutoWrapper.Extensions;
 using AutoWrapper.Wrappers;
 using ApiBoilerPlate.Contracts;
-using ApiBoilerPlate.Domain.Entity;
+using ApiBoilerPlate.Data.Entity;
 using ApiBoilerPlate.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
