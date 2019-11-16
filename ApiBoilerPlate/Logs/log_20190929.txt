@@ -1,8 +1,0 @@
-2019-09-29T14:57:25.9875123-05:00 [INF] () Starting web host
-2019-09-29T14:57:28.9551573-05:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Request: GET https localhost:44321/api/values   Responded with [404] in 340ms
-2019-09-29T14:57:31.1419654-05:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Request: POST https localhost:44321/api/v1/persons  {
-	"FirstName": "Vynn",
-	"LastName": "Durano",
-	"DateOfBirth": "2016-11-22"
-} Responded with [201] in 2213ms
-2019-09-29T14:57:38.4156606-05:00 [INF] (AutoWrapper.AutoWrapperMiddleware) Request: GET https localhost:44321/api/v1/persons   Responded with [200] in 122ms

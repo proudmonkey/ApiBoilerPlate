@@ -8,6 +8,7 @@ namespace ApiBoilerPlate.Contracts
 {
     public interface IApiConnect<T> where T : class
     {
-        Task<T> PostAsync(string apiEndPoint, StringContent content, string token);
+        //Task<T> PostAsync(string apiEndPoint, StringContent content);
+        Task<T> GetSampleData();
     }
 }

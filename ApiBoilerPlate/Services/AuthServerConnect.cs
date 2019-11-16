@@ -1,6 +1,4 @@
-﻿
-using ApiBoilerPlate.Constants;
-using ApiBoilerPlate.Contracts;
+﻿using ApiBoilerPlate.Contracts;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,26 +10,25 @@ namespace ApiBoilerPlate.Services
     public class AuthServerConnect : IAuthServerConnect
     {
         private readonly HttpClient _httpClient;
-        private readonly IConfiguration _config;
+        private readonly IDiscoveryCache _discoveryCache;
         private readonly ILogger<AuthServerConnect> _logger;
+        private readonly IConfiguration _config;
 
-        public AuthServerConnect(HttpClient httpClient, IConfiguration config, ILogger<AuthServerConnect> logger)
+        public AuthServerConnect(HttpClient httpClient, IConfiguration config, IDiscoveryCache discoveryCache, ILogger<AuthServerConnect> logger)
         {
             _httpClient = httpClient;
             _config = config;
+            _discoveryCache = discoveryCache;
             _logger = logger;
         }
-        public async Task<(string AccessToken, string ErrorMessage)> RequestAccessToken()
+        public async Task<string> RequestClientCredentialsTokenAsync()
         {
-            string errorMessage = string.Empty;
 
-            var endPointDiscovery = await _httpClient.GetDiscoveryDocumentAsync(_config["AuthServer:BaseUrl"]);
+            var endPointDiscovery = await _discoveryCache.GetAsync();
             if (endPointDiscovery.IsError)
             {
-                errorMessage = $"ErrorType: {endPointDiscovery.ErrorType} Error: {endPointDiscovery.Error}";
-                _logger.Log(LogLevel.Error, errorMessage);
-
-                return (string.Empty, errorMessage);
+                _logger.Log(LogLevel.Error, $"ErrorType: {endPointDiscovery.ErrorType} Error: {endPointDiscovery.Error}");
+                throw new HttpRequestException("Something went wrong while connecting to the AuthServer Token Endpoint.");
             }
 
             var tokenResponse = await _httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
@@ -39,19 +36,16 @@ namespace ApiBoilerPlate.Services
                 Address = endPointDiscovery.TokenEndpoint,
                 ClientId = _config["Self:Id"],
                 ClientSecret = _config["Self:Secret"],
-                
-                //Add Scope here when neccessary
+                Scope = "SampleApiResource"
             });
 
             if (tokenResponse.IsError)
             {
-                errorMessage = $"ErrorType: {tokenResponse.ErrorType} Error: {tokenResponse.Error}";
-
-                _logger.Log(LogLevel.Error, errorMessage);
-                return (string.Empty, errorMessage);
+                _logger.Log(LogLevel.Error, $"ErrorType: {tokenResponse.ErrorType} Error: {tokenResponse.Error}");
+                throw new HttpRequestException("Something went wrong while requesting Token to the AuthServer.");
             }
 
-            return (tokenResponse.AccessToken, errorMessage);
+            return tokenResponse.AccessToken;
         }
     }
 }

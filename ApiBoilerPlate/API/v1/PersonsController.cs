@@ -14,6 +14,8 @@ namespace ApiBoilerPlate.API.v1
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    //Uncomment to secure the Api 
+    //[Authorize]
     public class PersonsController : ControllerBase
     {
         private readonly ILogger<PersonsController> _logger;

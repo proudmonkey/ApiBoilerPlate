@@ -19,33 +19,31 @@ namespace ApiBoilerPlate.API.v1
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    [Authorize]
+    //Uncomment to secure the Api 
+    //[Authorize]
     public class SampleApiController: ControllerBase
     {
         private readonly ILogger<PersonsController> _logger;
         private readonly IApiConnect<ApiResponse> _sampleApiConnect;
-        private readonly IAuthServerConnect _authServerConnect;
 
-        public SampleApiController(IApiConnect<ApiResponse> sampleApiConnect, IAuthServerConnect authServerConnect, ILogger<PersonsController> logger)
+        public SampleApiController(IApiConnect<ApiResponse> sampleApiConnect, ILogger<PersonsController> logger)
         {
             _sampleApiConnect = sampleApiConnect;
-            _authServerConnect = authServerConnect;
             _logger = logger;
         }
 
-        [HttpPost]
-        public async Task<ApiResponse> Post([FromBody] PersonDTO dto)
+        [HttpGet]
+        public async Task<ApiResponse> Get()
         {
 
             if (ModelState.IsValid)
             {
-                var authServerResponse = await _authServerConnect.RequestAccessToken();
+                var result = await _sampleApiConnect.GetSampleData();
 
-                if (string.IsNullOrEmpty(authServerResponse.AccessToken))
-                    throw new ApiException(authServerResponse.ErrorMessage, 401);
+                if (result.IsError)
+                    throw new ApiException("An error occured while external api", 500);
 
-                var content = new StringContent(JsonConvert.SerializeObject(dto), Encoding.UTF8, HttpContentMediaTypes.JSON);
-                return await _sampleApiConnect.PostAsync("api/v1/SomeEndPoint", content, authServerResponse.AccessToken);
+                return result;
             }
             else
                 throw new ApiException(ModelState.AllErrors());

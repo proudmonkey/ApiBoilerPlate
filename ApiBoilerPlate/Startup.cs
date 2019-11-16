@@ -58,7 +58,7 @@ namespace ApiBoilerPlate
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                     .AddIdentityServerAuthentication(options =>
                     {
-                       options.Authority = Configuration["AuthServer:BaseUrl"];
+                       options.Authority = Configuration["ApiResourceBaseUrls:AuthServer"];
                        options.RequireHttpsMetadata = false;
                        options.ApiName = "api.boilerplate.core";
                     });

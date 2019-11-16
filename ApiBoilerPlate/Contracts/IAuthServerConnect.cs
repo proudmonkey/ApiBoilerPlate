@@ -4,6 +4,6 @@ namespace ApiBoilerPlate.Contracts
 {
     public interface IAuthServerConnect
     {
-        Task<(string AccessToken, string ErrorMessage)> RequestAccessToken();
+        Task<string> RequestClientCredentialsTokenAsync();
     }
 }
