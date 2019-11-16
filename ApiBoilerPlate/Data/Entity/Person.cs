@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApiBoilerPlate.Domain.Entity
+namespace ApiBoilerPlate.Data.Entity
 {
     public class Person
     {

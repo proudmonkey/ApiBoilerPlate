@@ -1,13 +1,12 @@
 ﻿using ApiBoilerPlate.Contracts;
-using ApiBoilerPlate.Data;
-using ApiBoilerPlate.Domain.Entity;
+using ApiBoilerPlate.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ApiBoilerPlate.Domain
+namespace ApiBoilerPlate.Data.DataManager
 {
-    public class PersonManager : DBFactoryBase, IPersonManager
+    public class PersonManager : DbFactoryBase, IPersonManager
     {
         public PersonManager(IConfiguration config) : base(config)
         {

@@ -1,4 +1,4 @@
-﻿using ApiBoilerPlate.Domain.Entity;
+﻿using ApiBoilerPlate.Data.Entity;
 
 namespace ApiBoilerPlate.Contracts
 {

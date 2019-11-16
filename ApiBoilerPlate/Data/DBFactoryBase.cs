@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ApiBoilerPlate.Data
 {
-    public abstract class DBFactoryBase
+    public abstract class DbFactoryBase
     {
         private readonly IConfiguration _config;
 
-        public DBFactoryBase(IConfiguration config)
+        public DbFactoryBase(IConfiguration config)
         {
             _config = config;
         }
