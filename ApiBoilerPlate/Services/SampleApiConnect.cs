@@ -1,9 +1,11 @@
 ﻿using ApiBoilerPlate.Contracts;
 using AutoWrapper.Wrappers;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
-
+using ApiBoilerPlate.DTO;
+using System.Text;
+using ApiBoilerPlate.Constants;
 
 namespace ApiBoilerPlate.Services
 {
@@ -15,19 +17,29 @@ namespace ApiBoilerPlate.Services
             _httpClient = httpClient;
         }
 
-        //public async Task<ApiResponse> CreateSampleData(string apiEndPoint, StringContent content)
-        //{
-        //    var httpResponse = await _httpClient.PostAsync(apiEndPoint, content);
-        //    var contentResult = await httpResponse.Content.ReadAsStringAsync();
-        //    var response = JsonConvert.DeserializeObject<ApiResponse>(contentResult);
-
-        //    return response;
-        //}
-
-        public async Task<ApiResponse> GetSampleData()
+        public async Task<ApiResponse> CreateSampleData(PersonDTO dto)
         {
-            var httpResponseString = await _httpClient.GetStringAsync("api/v1/sample");
-            var response = JsonConvert.DeserializeObject<ApiResponse>(httpResponseString);
+            var content = new StringContent(JsonSerializer.Serialize(dto), Encoding.UTF8, HttpContentMediaTypes.JSON);
+            var httpResponse = await _httpClient.PostAsync("api/v1/sample", content);
+
+            if (!httpResponse.IsSuccessStatusCode)
+                throw new ApiException("An error occured while requesting external api", 500);
+
+            var contentResult = await httpResponse.Content.ReadAsStringAsync();
+            var response = JsonSerializer.Deserialize<ApiResponse>(contentResult);
+
+            return response;
+        }
+
+        public async Task<ApiResponse> GetSampleData(long id)
+        {
+            var httpResponse = await _httpClient.GetAsync($"api/v1/sample/{id}");
+
+            if (!httpResponse.IsSuccessStatusCode)
+                throw new ApiException("An error occured while requesting external api", 500);
+
+            var contentResult = await httpResponse.Content.ReadAsStringAsync();
+            var response = JsonSerializer.Deserialize<ApiResponse>(contentResult);
 
             return response;
         }

@@ -28,7 +28,7 @@ namespace ApiBoilerPlate
             //Uncomment to Register Worker Service
             //services.AddSingleton<IHostedService, MessageQueueProcessorService>();
 
-            //Register DTO Validators and Interface Mappings for Repositories
+            //Register services in Installers folder
             services.AddServicesInAssembly(Configuration);
 
             //Disable Automatic Model State Validation built-in to ASP.NET Core

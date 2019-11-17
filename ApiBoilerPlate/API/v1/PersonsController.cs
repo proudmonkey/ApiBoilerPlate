@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace ApiBoilerPlate.API.v1
 {
@@ -44,7 +45,7 @@ namespace ApiBoilerPlate.API.v1
                 return person;
             }
             else
-                throw new ApiException($"Record with id: {id} does not exist.", 204);
+                throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
         }
 
         [HttpPost]
@@ -56,7 +57,7 @@ namespace ApiBoilerPlate.API.v1
                 try
                 {
                     var person = _mapper.Map<Person>(dto);
-                    return new ApiResponse("Created Successfully", await _personManager.CreateAsync(person), 201);
+                    return new ApiResponse("Created Successfully", await _personManager.CreateAsync(person), Status201Created);
                 }
                 catch (Exception ex)
                 {
@@ -82,7 +83,7 @@ namespace ApiBoilerPlate.API.v1
                     if (await _personManager.UpdateAsync(person))
                         return new ApiResponse("Update successful.", true);
                     else
-                        throw new ApiException($"Record with id: {id} does not exist.", 400);
+                        throw new ApiException($"Record with id: {id} does not exist.", Status400BadRequest);
                 }
                 catch (Exception ex)
                 {
@@ -107,7 +108,7 @@ namespace ApiBoilerPlate.API.v1
                     return isDeleted;
                 }
                 else
-                    throw new ApiException($"Record with id: {id} does not exist.", 400);
+                    throw new ApiException($"Record with id: {id} does not exist.", Status400BadRequest);
             }
             catch (Exception ex)
             {
