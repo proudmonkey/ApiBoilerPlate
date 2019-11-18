@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Helpers\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 

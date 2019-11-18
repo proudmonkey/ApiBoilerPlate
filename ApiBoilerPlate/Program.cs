@@ -39,6 +39,12 @@ namespace ApiBoilerPlate
                 {
                     webBuilder.UseStartup<Startup>();
                 })
+                .ConfigureAppConfiguration((hostContext, config) =>
+                {
+                    var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                    var settings = env == null ? "appsettings.json" : $"appsettings.{env}.json";
+                    config.AddJsonFile(settings, optional: true, reloadOnChange: true);
+                })
                 .UseSerilog();
     }
 }

@@ -4,7 +4,7 @@ using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ApiBoilerPlate.Installers
+namespace ApiBoilerPlate.Infrastructure.Installers
 {
     public class RegisterModelValidators: IServiceRegistration
     {

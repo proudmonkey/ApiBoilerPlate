@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
-namespace ApiBoilerPlate.Helpers.Extensions
+namespace ApiBoilerPlate.Infrastructure.Extensions
 {
     public static class ServiceRegistrationExtension
     {

@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace ApiBoilerPlate.Handlers
+namespace ApiBoilerPlate.Infrastructure.Handlers
 {
     public class ProtectedApiBearerTokenHandler : DelegatingHandler
     {

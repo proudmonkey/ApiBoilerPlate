@@ -1,5 +1,6 @@
-using ApiBoilerPlate.Handlers;
-using ApiBoilerPlate.Helpers.Extensions;
+using ApiBoilerPlate.Infrastructure.Configs;
+using ApiBoilerPlate.Infrastructure.Extensions;
+using ApiBoilerPlate.Infrastructure.Filters;
 using AutoMapper;
 using AutoWrapper;
 using FluentValidation.AspNetCore;
@@ -66,7 +67,7 @@ namespace ApiBoilerPlate
                     });
 
             //Register Automapper
-            services.AddAutoMapper(typeof(Helpers.MappingProfile));
+            services.AddAutoMapper(typeof(MappingProfileConfiguration));
 
             //Register Swagger
             //See: https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4
@@ -79,7 +80,6 @@ namespace ApiBoilerPlate
                     Scheme = "Bearer",
                     Description = "Enter 'Bearer' following by space and JWT.",
                     Name = "Authorization",
-                    //In = ParameterLocation.Header,
                     Type = SecuritySchemeType.Http,
 
                 });
@@ -106,7 +106,7 @@ namespace ApiBoilerPlate
 
             app.UseHttpsRedirection();
 
-            //docs: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.0&tabs=visual-studio
+            //Enable Swagger and SwaggerUI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

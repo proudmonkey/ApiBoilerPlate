@@ -1,30 +1,26 @@
 ﻿using ApiBoilerPlate.Constants;
 using ApiBoilerPlate.Contracts;
-using AutoWrapper.Wrappers;
-using ApiBoilerPlate.DTO;
+using ApiBoilerPlate.Infrastructure.Configs;
+using ApiBoilerPlate.Infrastructure.Handlers;
 using ApiBoilerPlate.Services;
+using AutoWrapper.Wrappers;
+using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Net.Http;
 using Polly;
-using ApiBoilerPlate.Handlers;
-using IdentityModel.Client;
 using Polly.Extensions.Http;
+using System;
 using System.Net;
-using ApiBoilerPlate.Helpers;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
-namespace ApiBoilerPlate.Installers
+namespace ApiBoilerPlate.Infrastructure.Installers
 {
     public class RegisterApiResources : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {
-            var policyConfigs = new HttpClientPolicyConfigs();
+            var policyConfigs = new HttpClientPolicyConfiguration();
             config.Bind("HttpClientPolicies", policyConfigs);
 
             var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(policyConfigs.RetryTimeoutInSeconds));

@@ -2,11 +2,11 @@
 using ApiBoilerPlate.Data.Entity;
 using ApiBoilerPlate.DTO;
 
-namespace ApiBoilerPlate.Helpers
+namespace ApiBoilerPlate.Infrastructure.Configs
 {
-    public class MappingProfile: Profile
+    public class MappingProfileConfiguration: Profile
     {
-        public MappingProfile()
+        public MappingProfileConfiguration()
         {
             CreateMap<Person, PersonDTO>().ReverseMap();
         }

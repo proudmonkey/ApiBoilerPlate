@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace ApiBoilerPlate.Handlers
+namespace ApiBoilerPlate.Infrastructure.Filters
 {
     public class SwaggerAuthorizeCheckOperationFilter : IOperationFilter
     {

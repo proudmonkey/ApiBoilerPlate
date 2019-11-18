@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiBoilerPlate.Helpers
+namespace ApiBoilerPlate.Infrastructure.Configs
 {
-    public class HttpClientPolicyConfigs
+    public class HttpClientPolicyConfiguration
     {
         public int RetryCount { get; set; }
         public int RetryDelayInMs { get; set; }
