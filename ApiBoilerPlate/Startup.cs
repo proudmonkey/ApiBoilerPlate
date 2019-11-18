@@ -1,3 +1,4 @@
+using ApiBoilerPlate.Handlers;
 using ApiBoilerPlate.Helpers.Extensions;
 using AutoMapper;
 using AutoWrapper;
@@ -54,6 +55,7 @@ namespace ApiBoilerPlate
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
 
             //Setup JWT Authentication Handler with IdentityServer4
+            //You should register the ApiName a.k.a Audience in your AuthServer
             //More info see: http://docs.identityserver.io/en/latest/topics/apis.html
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                     .AddIdentityServerAuthentication(options =>
@@ -67,9 +69,22 @@ namespace ApiBoilerPlate
             services.AddAutoMapper(typeof(Helpers.MappingProfile));
 
             //Register Swagger
-            services.AddSwaggerGen(c =>
+            //See: https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASP.NET Core Template API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "ASP.NET Core Template API", Version = "v1" });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Scheme = "Bearer",
+                    Description = "Enter 'Bearer' following by space and JWT.",
+                    Name = "Authorization",
+                    //In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+
+                });
+
+                options.OperationFilter<SwaggerAuthorizeCheckOperationFilter>();
             });
         }
 
