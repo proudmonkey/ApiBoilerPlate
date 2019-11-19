@@ -1,6 +1,7 @@
 using ApiBoilerPlate.Infrastructure.Configs;
 using ApiBoilerPlate.Infrastructure.Extensions;
 using ApiBoilerPlate.Infrastructure.Filters;
+using AspNetCoreRateLimit;
 using AutoMapper;
 using AutoWrapper;
 using FluentValidation.AspNetCore;
@@ -112,6 +113,9 @@ namespace ApiBoilerPlate
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NET Core Template API V1");
             });
+
+            //Enable AspNetCoreRateLimit
+            app.UseIpRateLimiting();
 
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper
