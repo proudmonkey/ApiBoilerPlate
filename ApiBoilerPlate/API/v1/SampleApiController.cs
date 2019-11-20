@@ -1,5 +1,6 @@
 ﻿using ApiBoilerPlate.Contracts;
-using ApiBoilerPlate.DTO;
+using ApiBoilerPlate.DTO.Request;
+using ApiBoilerPlate.DTO.Response;
 using AutoWrapper.Extensions;
 using AutoWrapper.Wrappers;
 using Microsoft.AspNetCore.Authorization;
@@ -15,9 +16,9 @@ namespace ApiBoilerPlate.API.v1
     public class SampleApiController: ControllerBase
     {
         private readonly ILogger<PersonsController> _logger;
-        private readonly IApiConnect<ApiResponse> _sampleApiConnect;
+        private readonly IApiConnect _sampleApiConnect;
 
-        public SampleApiController(IApiConnect<ApiResponse> sampleApiConnect, ILogger<PersonsController> logger)
+        public SampleApiController(IApiConnect sampleApiConnect, ILogger<PersonsController> logger)
         {
             _sampleApiConnect = sampleApiConnect;
             _logger = logger;
@@ -28,18 +29,17 @@ namespace ApiBoilerPlate.API.v1
         public async Task<ApiResponse> Get(long id)
         {
             if (ModelState.IsValid)
-                return await _sampleApiConnect.GetSampleData(id);
+                return new ApiResponse(await _sampleApiConnect.GetDataAsync<SampleResponse>($"/api/v1/sample/{id}"));
             else
                 throw new ApiException(ModelState.AllErrors());
         }
 
         [HttpPost]
-        public async Task<ApiResponse> Post([FromBody] PersonDTO dto)
+        public async Task<ApiResponse> Post([FromBody] SampleRequest dto)
         {
             if (ModelState.IsValid)
-            {
-                return await _sampleApiConnect.CreateSampleData(dto);
-            }
+                return  new ApiResponse( await _sampleApiConnect.PostDataAsync<SampleResponse,SampleRequest>("/api/v1/sample", dto));
+
             else
                 throw new ApiException(ModelState.AllErrors());
         }

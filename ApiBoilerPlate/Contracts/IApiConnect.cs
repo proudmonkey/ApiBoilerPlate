@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ApiBoilerPlate.Contracts
 {
-    public interface IApiConnect<T> where T : class
+    public interface IApiConnect
     {
-        Task<T> CreateSampleData(PersonDTO dto);
-        Task<T> GetSampleData(long id);
+        Task<T> PostDataAsync<T,T2>(string endPoint, T2 dto);
+        Task<T> GetDataAsync<T>(string endPoint);
     }
 }

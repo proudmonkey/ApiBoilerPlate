@@ -3,7 +3,7 @@ using ApiBoilerPlate.Contracts;
 using ApiBoilerPlate.Infrastructure.Configs;
 using ApiBoilerPlate.Infrastructure.Handlers;
 using ApiBoilerPlate.Services;
-using AutoWrapper.Wrappers;
+using AutoWrapper.Server;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +38,12 @@ namespace ApiBoilerPlate.Infrastructure.Installers
 
             //Register custom Bearer Token Handler. The DelegatingHandler has to be registered as a Transient Service
             services.AddTransient<ProtectedApiBearerTokenHandler>();
+            services.AddTransient<UnWrapResponseHandler>();
 
             //Register a Typed Instance of HttpClientFactory for a Protected Resource
             //More info see: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.0
 
-            services.AddHttpClient<IApiConnect<ApiResponse>, SampleApiConnect>(client =>
+            services.AddHttpClient<IApiConnect, SampleApiConnect>(client =>
             {
                 client.BaseAddress = new Uri(config["ApiResourceBaseUrls:SampleApi"]);
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -52,7 +53,8 @@ namespace ApiBoilerPlate.Infrastructure.Installers
             .AddHttpMessageHandler<ProtectedApiBearerTokenHandler>()
             .AddPolicyHandler(request => request.Method == HttpMethod.Get ? retryPolicy : noOpPolicy)
             .AddPolicyHandler(timeoutPolicy)
-            .AddPolicyHandler(circuitBreakerPolicy);
+            .AddPolicyHandler(circuitBreakerPolicy)
+            .AddHttpMessageHandler<UnWrapResponseHandler>();
 
 
             //Register a Typed Instance of HttpClientFactory for AuthService 
@@ -67,3 +69,5 @@ namespace ApiBoilerPlate.Infrastructure.Installers
         }
     }
 }
+
+
