@@ -7,15 +7,19 @@ using ApiBoilerPlate.DTO.Response;
 using ApiBoilerPlate.DTO.Request;
 using System.Text;
 using ApiBoilerPlate.Constants;
+using Microsoft.Extensions.Logging;
+using AutoWrapper.Server;
 
 namespace ApiBoilerPlate.Services
 {
     public class SampleApiConnect: IApiConnect
     {
         private readonly HttpClient _httpClient;
-        public SampleApiConnect(HttpClient httpClient)
+        private readonly ILogger<SampleApiConnect> _logger;
+      public SampleApiConnect(HttpClient httpClient,ILogger<SampleApiConnect> logger)
         {
             _httpClient = httpClient;
+            _logger = logger;
         }
 
         public async Task<SampleResponse> PostDataAsync<SampleResponse, SampleRequest>(string endPoint, SampleRequest dto)
@@ -24,12 +28,15 @@ namespace ApiBoilerPlate.Services
             var httpResponse = await _httpClient.PostAsync(endPoint, content);
 
             if (!httpResponse.IsSuccessStatusCode)
-                throw new ApiException("An error occured while requesting external api", (int)httpResponse.StatusCode);
+            {
+                _logger.Log(LogLevel.Warning, $"[{httpResponse.StatusCode}] An error occured while requesting external api.");
+                return default(SampleResponse);
+            }
 
-            var contentResult = await httpResponse.Content.ReadAsStringAsync();
-            var response = JsonSerializer.Deserialize<SampleResponse>(contentResult);
+            var jsonString = await httpResponse.Content.ReadAsStringAsync();
+            var data = Unwrapper.Unwrap<SampleResponse>(jsonString);
 
-            return response;
+            return data;
         }
 
         public async Task<SampleResponse> GetDataAsync<SampleResponse>(string endPoint)
@@ -37,12 +44,15 @@ namespace ApiBoilerPlate.Services
             var httpResponse = await _httpClient.GetAsync(endPoint);
 
             if (!httpResponse.IsSuccessStatusCode)
-                throw new ApiException("An error occured while requesting external api", 500);
+            {
+                _logger.Log(LogLevel.Warning, $"[{httpResponse.StatusCode}] An error occured while requesting external api.");
+                return default(SampleResponse);
+            }
 
-            var contentResult = await httpResponse.Content.ReadAsStringAsync();
-            var response = JsonSerializer.Deserialize<SampleResponse>(contentResult);
+            var jsonString = await httpResponse.Content.ReadAsStringAsync();
+            var data = Unwrapper.Unwrap<SampleResponse>(jsonString);
 
-            return response;
+            return data;
         }
 
     }
