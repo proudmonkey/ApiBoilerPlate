@@ -55,5 +55,29 @@ namespace ApiBoilerPlate.Data
                 return await dbCon.ExecuteScalarAsync<bool>(sql, parameters);
             }
         }
+
+        public virtual async Task<T> DbExecuteScalarDynamicAsync<T>(string sql, object parameters = null)
+        {
+            using (IDbConnection dbCon = DbConnection)
+            {
+                dbCon.Open();
+                if (parameters == null)
+                    return await dbCon.ExecuteScalarAsync<T>(sql);
+
+                return await dbCon.ExecuteScalarAsync<T>(sql, parameters);
+            }
+        }
+
+        public virtual async Task<SqlMapper.GridReader> DbQueryMultipleAsync<T>(string sql, object parameters = null)
+        {
+            using (IDbConnection dbCon = DbConnection)
+            {
+                dbCon.Open();
+                if (parameters == null)
+                    return await dbCon.QueryMultipleAsync(sql);
+
+                return await dbCon.QueryMultipleAsync(sql,parameters);
+            }
+        }
     }
 }

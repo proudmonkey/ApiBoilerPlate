@@ -1,5 +1,6 @@
 ﻿using ApiBoilerPlate.Contracts;
 using ApiBoilerPlate.Data.Entity;
+using Dapper;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,6 +11,31 @@ namespace ApiBoilerPlate.Data.DataManager
     {
         public PersonManager(IConfiguration config) : base(config)
         {
+
+        }
+
+        public async Task<IEnumerable<Person>> GetPersonsAsync(UrlQueryParameters urlQueryParameters)
+        {
+            var totalRows = await DbExecuteScalarDynamicAsync<int>("SELECT COUNT(ID) FROM Person");
+
+            ////For PosgreSql
+            //var query = @"SELECT ID, FirstName, LastName FROM Person
+            //                ORDER BY ID DESC 
+            //                Limit @Limit Offset @Offset";
+
+            ////For SqlServer
+            var query = @"SELECT ID, FirstName, LastName FROM Person
+                            ORDER BY ID DESC
+                            OFFSET @Limit * (@Offset -1) ROWS
+                            FETCH NEXT @Limit ROWS ONLY";
+
+            var param = new DynamicParameters();
+            param.Add("Limit", urlQueryParameters.PageSize);
+            param.Add("Offset", urlQueryParameters.PageNumber);
+
+            var pagedRows = await DbQueryAsync<Person>(query, param);
+
+            return pagedRows;
 
         }
         public async Task<IEnumerable<Person>> GetAllAsync()

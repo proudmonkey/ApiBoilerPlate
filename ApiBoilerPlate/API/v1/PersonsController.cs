@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Microsoft.AspNetCore.Http.StatusCodes;
+using ApiBoilerPlate.Data;
 
 namespace ApiBoilerPlate.API.v1
 {
@@ -33,6 +34,13 @@ namespace ApiBoilerPlate.API.v1
         public async Task<IEnumerable<Person>> Get()
         {
             return await _personManager.GetAllAsync();
+        }
+
+        [Route("paged")]
+        [HttpGet]
+        public async Task<IEnumerable<Person>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
+        {
+            return await _personManager.GetPersonsAsync(urlQueryParameters);
         }
 
         [Route("{id:long}")]
