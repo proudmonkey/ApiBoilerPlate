@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterModelValidators: IServiceRegistration
+    internal class RegisterModelValidators: IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {

@@ -16,7 +16,7 @@ using System.Net.Http.Headers;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterApiResources : IServiceRegistration
+    internal class RegisterApiResources : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {

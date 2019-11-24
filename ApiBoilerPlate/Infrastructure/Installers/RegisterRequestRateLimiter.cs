@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterRequestRateLimiter : IServiceRegistration
+    internal class RegisterRequestRateLimiter : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {
