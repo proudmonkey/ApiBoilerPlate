@@ -10,5 +10,6 @@
             get => _pageSize;
             set => _pageSize = (value > maxPageSize) ? maxPageSize : value;
         }
+        public bool IncludeCount { get; set; } = false;
     }
 }

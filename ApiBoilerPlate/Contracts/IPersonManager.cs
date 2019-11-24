@@ -7,7 +7,7 @@ namespace ApiBoilerPlate.Contracts
 {
     public interface IPersonManager : IRepository<Person>
     {
-        Task<IEnumerable<Person>> GetPersonsAsync(UrlQueryParameters urlQueryParameters);
+        Task<(IEnumerable<Person> Persons, Pagination Pagination)> GetPersonsAsync(UrlQueryParameters urlQueryParameters);
         
         //Add more class specific methods here when neccessary
     }

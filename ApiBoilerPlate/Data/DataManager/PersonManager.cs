@@ -14,14 +14,16 @@ namespace ApiBoilerPlate.Data.DataManager
 
         }
 
-        public async Task<IEnumerable<Person>> GetPersonsAsync(UrlQueryParameters urlQueryParameters)
+        public async Task<(IEnumerable<Person> Persons, Pagination Pagination)> GetPersonsAsync(UrlQueryParameters urlQueryParameters)
         {
-            var totalRows = await DbExecuteScalarDynamicAsync<int>("SELECT COUNT(ID) FROM Person");
+            IEnumerable<Person> persons;
+            int recordCount = 0;
 
             ////For PosgreSql
             //var query = @"SELECT ID, FirstName, LastName FROM Person
             //                ORDER BY ID DESC 
             //                Limit @Limit Offset @Offset";
+
 
             ////For SqlServer
             var query = @"SELECT ID, FirstName, LastName FROM Person
@@ -33,9 +35,28 @@ namespace ApiBoilerPlate.Data.DataManager
             param.Add("Limit", urlQueryParameters.PageSize);
             param.Add("Offset", urlQueryParameters.PageNumber);
 
-            var pagedRows = await DbQueryAsync<Person>(query, param);
+            if (urlQueryParameters.IncludeCount)
+            {
+                query += " SELECT COUNT(ID) FROM Person";
+                var pagedRows = await DbQueryMultipleAsync<Person>(query, param);
 
-            return pagedRows;
+                persons = pagedRows.Data;
+                recordCount = pagedRows.RecordCount;
+            }
+            else
+            {
+                persons = await DbQueryAsync<Person>(query, param);
+            }
+
+            var metadata = new Pagination
+            {
+                PageNumber = urlQueryParameters.PageNumber,
+                PageSize = urlQueryParameters.PageSize,
+                TotalRecords = recordCount
+
+            };
+
+            return (persons, metadata);
 
         }
         public async Task<IEnumerable<Person>> GetAllAsync()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace ApiBoilerPlate.Data
 {
@@ -68,16 +69,22 @@ namespace ApiBoilerPlate.Data
             }
         }
 
-        public virtual async Task<SqlMapper.GridReader> DbQueryMultipleAsync<T>(string sql, object parameters = null)
+        public virtual async Task<(IEnumerable<T> Data, int RecordCount)> DbQueryMultipleAsync<T>(string sql, object parameters = null)
         {
+            IEnumerable<T> data = null;
+            int totalRecords = 0;
+
             using (IDbConnection dbCon = DbConnection)
             {
                 dbCon.Open();
-                if (parameters == null)
-                    return await dbCon.QueryMultipleAsync(sql);
-
-                return await dbCon.QueryMultipleAsync(sql,parameters);
+                using (GridReader results = await dbCon.QueryMultipleAsync(sql, parameters))
+                {
+                    data = await results.ReadAsync<T>();
+                    totalRecords = await results.ReadSingleAsync<int>();
+                }
             }
+
+            return (data, totalRecords);
         }
     }
 }

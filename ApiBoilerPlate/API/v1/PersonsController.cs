@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Text.Json;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 using ApiBoilerPlate.Data;
 
@@ -40,7 +41,11 @@ namespace ApiBoilerPlate.API.v1
         [HttpGet]
         public async Task<IEnumerable<Person>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
-            return await _personManager.GetPersonsAsync(urlQueryParameters);
+            var data =  await _personManager.GetPersonsAsync(urlQueryParameters);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(data.Pagination));
+
+            return data.Persons;
         }
 
         [Route("{id:long}")]
