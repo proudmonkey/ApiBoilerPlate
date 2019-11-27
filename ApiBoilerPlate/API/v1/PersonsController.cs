@@ -1,17 +1,18 @@
-﻿using AutoMapper;
+﻿using ApiBoilerPlate.Contracts;
+using ApiBoilerPlate.Data;
+using ApiBoilerPlate.Data.Entity;
+using ApiBoilerPlate.DTO.Request;
+using ApiBoilerPlate.DTO.Response;
+using AutoMapper;
 using AutoWrapper.Extensions;
 using AutoWrapper.Wrappers;
-using ApiBoilerPlate.Contracts;
-using ApiBoilerPlate.Data.Entity;
-using ApiBoilerPlate.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Text.Json;
+using System.Threading.Tasks;
 using static Microsoft.AspNetCore.Http.StatusCodes;
-using ApiBoilerPlate.Data;
 
 namespace ApiBoilerPlate.API.v1
 {
@@ -32,29 +33,35 @@ namespace ApiBoilerPlate.API.v1
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Person>> Get()
+        public async Task<IEnumerable<PersonResponse>> Get()
         {
-            return await _personManager.GetAllAsync();
+            var data = await _personManager.GetAllAsync();
+            var persons = _mapper.Map<IEnumerable<PersonResponse>>(data);
+
+            return persons;
         }
 
         [Route("paged")]
         [HttpGet]
-        public async Task<IEnumerable<Person>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
+        public async Task<IEnumerable<PersonResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
             var data =  await _personManager.GetPersonsAsync(urlQueryParameters);
+            var persons = _mapper.Map<IEnumerable<PersonResponse>>(data.Persons);
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(data.Pagination));
 
-            return data.Persons;
+            return persons;
         }
 
         [Route("{id:long}")]
         [HttpGet]
-        public async Task<Person> Get(long id)
+        public async Task<PersonResponse> Get(long id)
         {
-            var person = await _personManager.GetByIdAsync(id);
-            if (person != null)
+            var data = await _personManager.GetByIdAsync(id);
+
+            if (data != null)
             {
+                var person = _mapper.Map<PersonResponse>(data);
                 return person;
             }
             else
@@ -62,7 +69,7 @@ namespace ApiBoilerPlate.API.v1
         }
 
         [HttpPost]
-        public async Task<ApiResponse> Post([FromBody] PersonDTO dto)
+        public async Task<ApiResponse> Post([FromBody] CreatePersonRequest dto)
         {
 
             if (ModelState.IsValid)
@@ -84,7 +91,7 @@ namespace ApiBoilerPlate.API.v1
 
         [Route("{id:long}")]
         [HttpPut]
-        public async Task<ApiResponse> Put(long id, [FromBody] PersonDTO dto)
+        public async Task<ApiResponse> Put(long id, [FromBody] UpdatePersonRequest dto)
         {
             if (ModelState.IsValid)
             {
@@ -94,13 +101,13 @@ namespace ApiBoilerPlate.API.v1
                     person.ID = id;
 
                     if (await _personManager.UpdateAsync(person))
-                        return new ApiResponse("Update successful.", true);
+                        return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
                     else
-                        throw new ApiException($"Record with id: {id} does not exist.", Status400BadRequest);
+                        throw new ApiException($"Record with Id: {id} does not exist.", Status404NotFound);
                 }
                 catch (Exception ex)
                 {
-                    _logger.Log(LogLevel.Error, ex, "Error when trying to update with ID:{@ID}", id);
+                    _logger.Log(LogLevel.Error, ex, "Error when trying to update the database with Id:{@ID}", id);
                     throw;
                 }
             }
@@ -115,20 +122,16 @@ namespace ApiBoilerPlate.API.v1
         {
             try
             {
-                var isDeleted = await _personManager.DeleteAsync(id);
-                if (isDeleted)
-                {
-                    return isDeleted;
-                }
+                if (await _personManager.DeleteAsync(id))
+                    return true;
                 else
-                    throw new ApiException($"Record with id: {id} does not exist.", Status400BadRequest);
+                    throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
             }
             catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, ex, "Error when trying to delete with ID:{@ID}", id);
+                _logger.Log(LogLevel.Error, ex, "Error when trying to perform delete in database with Id:{@ID}", id);
                 throw;
             }
-
         }
     }
 }

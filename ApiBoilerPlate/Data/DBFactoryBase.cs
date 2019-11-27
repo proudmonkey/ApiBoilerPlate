@@ -12,6 +12,8 @@ namespace ApiBoilerPlate.Data
     {
         private readonly IConfiguration _config;
 
+        internal string DbConnectionString => _config.GetConnectionString("SQLDBConnectionString");
+
         public DbFactoryBase(IConfiguration config)
         {
             _config = config;

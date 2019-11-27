@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "TEST"
       }
     },
-    "CoreBoilerPlate": {
+    "ApiBoilerPlate": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/v1/persons",

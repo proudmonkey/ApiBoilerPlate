@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using ApiBoilerPlate.Data.Entity;
 using ApiBoilerPlate.DTO;
+using ApiBoilerPlate.DTO.Response;
+using ApiBoilerPlate.DTO.Request;
 
 namespace ApiBoilerPlate.Infrastructure.Configs
 {
@@ -8,7 +10,9 @@ namespace ApiBoilerPlate.Infrastructure.Configs
     {
         public MappingProfileConfiguration()
         {
-            CreateMap<Person, PersonDTO>().ReverseMap();
+            CreateMap<Person, CreatePersonRequest>().ReverseMap();
+            CreateMap<Person, UpdatePersonRequest>().ReverseMap();
+            CreateMap<Person, PersonResponse>().ReverseMap();
         }
     }
 }

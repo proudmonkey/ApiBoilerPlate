@@ -39,7 +39,6 @@ namespace ApiBoilerPlate.API.v1
         {
             if (ModelState.IsValid)
                 return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleResponse,SampleRequest>("/api/v1/sample", dto));
-
             else
                 throw new ApiException(ModelState.AllErrors());
         }

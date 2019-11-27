@@ -1,18 +1,18 @@
 ﻿using FluentValidation;
 using System;
 
-namespace ApiBoilerPlate.DTO
+namespace ApiBoilerPlate.DTO.Request
 {
-    public class PersonDTO
+    public class CreatePersonRequest
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
     }
 
-    public class PersonDTOValidator : AbstractValidator<PersonDTO>
+    public class CreatePersonRequestValidator : AbstractValidator<CreatePersonRequest>
     {
-        public PersonDTOValidator()
+        public CreatePersonRequestValidator()
         {
             RuleFor(o => o.FirstName).NotEmpty();
             RuleFor(o => o.LastName).NotEmpty();
@@ -20,5 +20,3 @@ namespace ApiBoilerPlate.DTO
         }
     }
 }
-
-
