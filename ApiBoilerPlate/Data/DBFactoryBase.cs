@@ -25,7 +25,6 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 if (parameters == null)
                     return await dbCon.QueryAsync<T>(sql);
     
@@ -36,7 +35,6 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 return await dbCon.QueryFirstOrDefaultAsync<T>(sql, parameters);
             }
         }
@@ -45,7 +43,6 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 return await dbCon.ExecuteAsync(sql, parameters) > 0;
             }
         }
@@ -54,7 +51,6 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 return await dbCon.ExecuteScalarAsync<bool>(sql, parameters);
             }
         }
@@ -63,7 +59,6 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 if (parameters == null)
                     return await dbCon.ExecuteScalarAsync<T>(sql);
 
@@ -78,7 +73,6 @@ namespace ApiBoilerPlate.Data
 
             using (IDbConnection dbCon = DbConnection)
             {
-                dbCon.Open();
                 using (GridReader results = await dbCon.QueryMultipleAsync(sql, parameters))
                 {
                     data = await results.ReadAsync<T>();
