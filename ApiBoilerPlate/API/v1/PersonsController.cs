@@ -60,10 +60,7 @@ namespace ApiBoilerPlate.API.v1
             var data = await _personManager.GetByIdAsync(id);
 
             if (data != null)
-            {
-                var person = _mapper.Map<PersonResponse>(data);
-                return person;
-            }
+                return _mapper.Map<PersonResponse>(data);
             else
                 throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
         }
@@ -74,16 +71,8 @@ namespace ApiBoilerPlate.API.v1
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var person = _mapper.Map<Person>(dto);
-                    return new ApiResponse("Created Successfully", await _personManager.CreateAsync(person), Status201Created);
-                }
-                catch (Exception ex)
-                {
-                    _logger.Log(LogLevel.Error, ex, "Error when trying to insert.");
-                    throw;
-                }
+                var person = _mapper.Map<Person>(dto);
+                return new ApiResponse("Record successfully created.", await _personManager.CreateAsync(person), Status201Created);
             }
             else
                 throw new ApiException(ModelState.AllErrors());
@@ -95,21 +84,13 @@ namespace ApiBoilerPlate.API.v1
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var person = _mapper.Map<Person>(dto);
-                    person.ID = id;
+                var person = _mapper.Map<Person>(dto);
+                person.ID = id;
 
-                    if (await _personManager.UpdateAsync(person))
-                        return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
-                    else
-                        throw new ApiException($"Record with Id: {id} does not exist.", Status404NotFound);
-                }
-                catch (Exception ex)
-                {
-                    _logger.Log(LogLevel.Error, ex, "Error when trying to update the database with Id:{@ID}", id);
-                    throw;
-                }
+                if (await _personManager.UpdateAsync(person))
+                    return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
+                else
+                    throw new ApiException($"Record with Id: {id} does not exist.", Status404NotFound);
             }
             else
                 throw new ApiException(ModelState.AllErrors());
@@ -118,20 +99,12 @@ namespace ApiBoilerPlate.API.v1
 
         [Route("{id:long}")]
         [HttpDelete]
-        public async Task<bool> Delete(long id)
+        public async Task<ApiResponse> Delete(long id)
         {
-            try
-            {
-                if (await _personManager.DeleteAsync(id))
-                    return true;
-                else
-                    throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
-            }
-            catch (Exception ex)
-            {
-                _logger.Log(LogLevel.Error, ex, "Error when trying to perform delete in database with Id:{@ID}", id);
-                throw;
-            }
+            if (await _personManager.DeleteAsync(id))
+                return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true);
+            else
+                throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
         }
     }
 }

@@ -205,11 +205,10 @@ namespace ApiBoilerPlate.Test.v1
             _mockDataManager.Setup(manager => manager.DeleteAsync(id))
                  .ReturnsAsync(true);
 
-            bool isDeleted = await _controller.Delete(id);
+            var result = await _controller.Delete(id);
 
-            var response = Assert.IsType<bool>(isDeleted);
-
-            Assert.True(response);
+            var response = Assert.IsType<ApiResponse>(result);
+            Assert.Equal(200, response.StatusCode);
         }
 
         [Fact]
