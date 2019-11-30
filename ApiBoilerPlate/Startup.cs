@@ -1,20 +1,16 @@
 using ApiBoilerPlate.Infrastructure.Configs;
 using ApiBoilerPlate.Infrastructure.Extensions;
-using ApiBoilerPlate.Infrastructure.Filters;
 using AspNetCoreRateLimit;
 using AutoMapper;
 using AutoWrapper;
 using FluentValidation.AspNetCore;
 using HealthChecks.UI.Client;
-using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace ApiBoilerPlate
 {
@@ -39,8 +35,6 @@ namespace ApiBoilerPlate
                     .AddNewtonsoftJson()
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
 
-           
-
             //Register Automapper
             services.AddAutoMapper(typeof(MappingProfileConfiguration));
 
@@ -58,9 +52,6 @@ namespace ApiBoilerPlate
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            //Enable CORS
-            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 
@@ -81,14 +72,14 @@ namespace ApiBoilerPlate
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             }).UseHealthChecksUI();
 
-            ////Enable HealthChecks and UI
-            //app.UseHealthChecksUI();
-
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper
             app.UseApiResponseAndExceptionWrapper();
 
             app.UseRouting();
+
+            //Enable CORS
+            app.UseCors("AllowAll");
 
             //Adds authenticaton middleware to the pipeline so authentication will be performed automatically on each request to host
             app.UseAuthentication();

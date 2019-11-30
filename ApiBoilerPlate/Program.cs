@@ -21,7 +21,6 @@ namespace ApiBoilerPlate
             {
                 Log.Information("Starting web host");
                 CreateHostBuilder(args).Build().Run();
-
             }
             catch (Exception ex)
             {
