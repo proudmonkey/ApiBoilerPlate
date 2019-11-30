@@ -31,10 +31,8 @@ namespace ApiBoilerPlate
         public void ConfigureServices(IServiceCollection services)
         {
 
-
             //Register services in Installers folder
             services.AddServicesInAssembly(Configuration);
-
 
             //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
             services.AddControllers()
@@ -55,23 +53,7 @@ namespace ApiBoilerPlate
             //Register Automapper
             services.AddAutoMapper(typeof(MappingProfileConfiguration));
 
-            //Register Swagger
-            //See: https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiBoilerPlate ASP.NET Core API", Version = "v1" });
-
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Scheme = "Bearer",
-                    Description = "Enter 'Bearer' following by space and JWT.",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
-
-                });
-
-                options.OperationFilter<SwaggerAuthorizeCheckOperationFilter>();
-            });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
