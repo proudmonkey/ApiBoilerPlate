@@ -38,7 +38,6 @@ namespace ApiBoilerPlate.Infrastructure.Installers
 
             //Register custom Bearer Token Handler. The DelegatingHandler has to be registered as a Transient Service
             services.AddTransient<ProtectedApiBearerTokenHandler>();
-            services.AddTransient<UnwrappingResponseHandler>();
 
             //Register a Typed Instance of HttpClientFactory for a Protected Resource
             //More info see: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-3.0
@@ -53,8 +52,7 @@ namespace ApiBoilerPlate.Infrastructure.Installers
             .AddHttpMessageHandler<ProtectedApiBearerTokenHandler>()
             .AddPolicyHandler(request => request.Method == HttpMethod.Get ? retryPolicy : noOpPolicy)
             .AddPolicyHandler(timeoutPolicy)
-            .AddPolicyHandler(circuitBreakerPolicy)
-            .AddHttpMessageHandler<UnwrappingResponseHandler>();
+            .AddPolicyHandler(circuitBreakerPolicy);
 
 
             //Register a Typed Instance of HttpClientFactory for AuthService 

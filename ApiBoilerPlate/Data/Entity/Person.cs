@@ -2,7 +2,7 @@
 
 namespace ApiBoilerPlate.Data.Entity
 {
-    public class Person
+    public class Person : EntityBase
     {
         public long ID { get; set; }
         public string FirstName { get; set; }

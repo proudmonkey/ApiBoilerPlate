@@ -5,8 +5,10 @@ using AspNetCoreRateLimit;
 using AutoMapper;
 using AutoWrapper;
 using FluentValidation.AspNetCore;
+using HealthChecks.UI.Client;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -74,7 +76,7 @@ namespace ApiBoilerPlate
             //See: https://www.scottbrady91.com/Identity-Server/ASPNET-Core-Swagger-UI-Authorization-using-IdentityServer4
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "ASP.NET Core Template API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiBoilerPlate ASP.NET Core API", Version = "v1" });
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -111,11 +113,21 @@ namespace ApiBoilerPlate
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NET Core Template API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiBoilerPlate ASP.NET Core API v1");
             });
 
             //Enable AspNetCoreRateLimit
             app.UseIpRateLimiting();
+
+            //Enable HealthChecks and UI
+            app.UseHealthChecks("/selfcheck", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            }).UseHealthChecksUI();
+
+            ////Enable HealthChecks and UI
+            //app.UseHealthChecksUI();
 
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper

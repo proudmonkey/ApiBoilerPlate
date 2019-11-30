@@ -24,13 +24,13 @@ namespace ApiBoilerPlate.Data.DataManager
             int recordCount = 0;
 
             ////For PosgreSql
-            //var query = @"SELECT ID, FirstName, LastName FROM Person
+            //var query = @"SELECT ID, FirstName, LastName, DateOfBirth FROM Person
             //                ORDER BY ID DESC 
             //                Limit @Limit Offset @Offset";
 
 
             ////For SqlServer
-            var query = @"SELECT ID, FirstName, LastName FROM Person
+            var query = @"SELECT ID, FirstName, LastName, DateOfBirth FROM Person
                             ORDER BY ID DESC
                             OFFSET @Limit * (@Offset -1) ROWS
                             FETCH NEXT @Limit ROWS ONLY";
