@@ -18,10 +18,13 @@ There are two ways to install the template:
 * [Dapper](https://dapper-tutorial.net/dapper) - For data access.
 * [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
 * [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request exceptions and consistent HTTP response format.
-* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For API documentation
+* [AutoWrapper.Server](https://github.com/proudmonkey/AutoWrapper.Server) - For unwrapping the `Result` attribute from AutoWrapper's `ApiResponse` output.
+* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For secured API documentation.
 * [FluentValidation.AspNetCore](https://fluentvalidation.net/aspnet) - For Model validations
 * [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilities
 * [IdentityServer4.AccessTokenValidation](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation) - For JWT Authentication handling
+* [Microsoft.Extensions.Http.Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory) - For handling `HttpClient` Resilience and Transient fault-handling
+* [AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) - For controlling the rate of requests that clients can make to an external `API` based on IP address or client ID.
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
 
