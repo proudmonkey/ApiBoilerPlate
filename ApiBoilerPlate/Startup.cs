@@ -30,13 +30,10 @@ namespace ApiBoilerPlate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Uncomment to Register Worker Service
-            //services.AddSingleton<IHostedService, MessageQueueProcessorService>();
+
 
             //Register services in Installers folder
             services.AddServicesInAssembly(Configuration);
-
-
 
 
             //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
