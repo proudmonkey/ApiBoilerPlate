@@ -39,21 +39,11 @@ namespace ApiBoilerPlate
                     .AddNewtonsoftJson()
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
 
-            //Setup JWT Authentication Handler with IdentityServer4
-            //You should register the ApiName a.k.a Audience in your AuthServer
-            //More info see: http://docs.identityserver.io/en/latest/topics/apis.html
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                    .AddIdentityServerAuthentication(options =>
-                    {
-                       options.Authority = Configuration["ApiResourceBaseUrls:AuthServer"];
-                       options.RequireHttpsMetadata = false;
-                       options.ApiName = "api.boilerplate.core";
-                    });
+           
 
             //Register Automapper
             services.AddAutoMapper(typeof(MappingProfileConfiguration));
 
-           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
