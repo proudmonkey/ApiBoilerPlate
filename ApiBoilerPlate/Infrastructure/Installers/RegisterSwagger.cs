@@ -6,7 +6,7 @@ using Microsoft.OpenApi.Models;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterSwagger: IServiceRegistration
+    internal class RegisterSwagger: IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {

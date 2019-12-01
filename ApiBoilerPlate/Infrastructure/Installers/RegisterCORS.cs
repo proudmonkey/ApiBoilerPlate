@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterCors : IServiceRegistration
+    internal class RegisterCors : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {

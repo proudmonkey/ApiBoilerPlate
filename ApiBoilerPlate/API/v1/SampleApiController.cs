@@ -15,10 +15,10 @@ namespace ApiBoilerPlate.API.v1
     [Authorize]
     public class SampleApiController: ControllerBase
     {
-        private readonly ILogger<PersonsController> _logger;
+        private readonly ILogger<SampleApiController> _logger;
         private readonly IApiConnect _sampleApiConnect;
 
-        public SampleApiController(IApiConnect sampleApiConnect, ILogger<PersonsController> logger)
+        public SampleApiController(IApiConnect sampleApiConnect, ILogger<SampleApiController> logger)
         {
             _sampleApiConnect = sampleApiConnect;
             _logger = logger;

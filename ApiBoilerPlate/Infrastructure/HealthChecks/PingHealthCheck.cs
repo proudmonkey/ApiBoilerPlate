@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiBoilerPlate.Infrastructure.HealthChecks
 {
-    public class PingHealthCheck : IHealthCheck
+    internal class PingHealthCheck : IHealthCheck
     {
         private string _host;
         private int _timeout;

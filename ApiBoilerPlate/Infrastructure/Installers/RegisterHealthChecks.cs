@@ -7,7 +7,7 @@ using System;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterHealthChecks : IServiceRegistration
+    internal class RegisterHealthChecks : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {

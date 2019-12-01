@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiBoilerPlate.Infrastructure.Installers
 {
-    public class RegisterWorkerServices : IServiceRegistration
+    internal class RegisterWorkerServices : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {

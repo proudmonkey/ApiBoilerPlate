@@ -62,9 +62,6 @@ namespace ApiBoilerPlate
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiBoilerPlate ASP.NET Core API v1");
             });
 
-            //Enable AspNetCoreRateLimit
-            app.UseIpRateLimiting();
-
             //Enable HealthChecks and UI
             app.UseHealthChecks("/selfcheck", new HealthCheckOptions
             {
@@ -75,6 +72,9 @@ namespace ApiBoilerPlate
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper
             app.UseApiResponseAndExceptionWrapper();
+
+            //Enable AspNetCoreRateLimit
+            app.UseIpRateLimiting();
 
             app.UseRouting();
 

@@ -3,7 +3,6 @@ using ApiBoilerPlate.Contracts;
 using ApiBoilerPlate.Infrastructure.Configs;
 using ApiBoilerPlate.Infrastructure.Handlers;
 using ApiBoilerPlate.Services;
-using AutoWrapper.Server;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

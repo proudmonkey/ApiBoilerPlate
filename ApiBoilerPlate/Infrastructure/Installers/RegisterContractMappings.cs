@@ -7,7 +7,7 @@ namespace ApiBoilerPlate.Infrastructure.Installers
 {
     internal class RegisterContractMappings : IServiceRegistration
     {
-        public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
+        public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {
             //Register Interface Mappings for Repositories
             services.AddTransient<IPersonManager, PersonManager>();
