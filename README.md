@@ -25,6 +25,10 @@ There are two ways to install the template:
 * [IdentityServer4.AccessTokenValidation](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation) - For JWT Authentication handling
 * [Microsoft.Extensions.Http.Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory) - For handling `HttpClient` Resilience and Transient fault-handling
 * [AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) - For controlling the rate of requests that clients can make to an external `API` based on IP address or client ID.
+* [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) - For performing health checks
+* [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.0) - For getting the results of Health Checks in the application
+* [AspNetCore.HealthChecks.UI](https://www.nuget.org/packages/AspNetCore.HealthChecks.UI/) - For Health Status visualization
+
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
 
