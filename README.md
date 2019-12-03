@@ -28,9 +28,33 @@ There are two ways to install the template:
 * [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) - For performing health checks
 * [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.0) - For getting the results of Health Checks in the application
 * [AspNetCore.HealthChecks.UI](https://www.nuget.org/packages/AspNetCore.HealthChecks.UI/) - For Health Status visualization
+* [xUnit](https://xunit.net/) and [Moq](https://github.com/Moq/moq4/wiki/Quickstart) - For unit testing.
 
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
+
+# Key Take Aways
+Here's the list of the good stuff that you can get when using the template:
+
+* Configured Sample Code for database CRUD operations.
+* Configured Basic Data Access using `Dapper`.
+* Configured Logging using `Serilog`.
+* Configured `AutoMapper` for mapping entity models to DTOs.
+* Configured `FluentValidation` for DTO validations.
+* Configured `AutoWrapper` for handling request exceptions and consistent Http response format.
+* Configured `AutoWrapper.Server` for unwrapping the `Result` attribute from AutoWrapper's `ApiResponse` output.
+* Configured `Swagger` API Documentation.
+* Configured `CORS`.
+* Configured `JWT` Authorization and Validation
+* Configured Sample Code for Requesting Client Credentials Token
+* Configured Swagger to secure API documentation with Bearer Authorization.
+* Configured Sample Code for connecting Protected External APIs.
+* Configured Sample Code for implementing custom API Pagination.
+* Configured `HttpClient` Resilience and Transient fault-handling
+* Configured Http Request Rate Limiter
+* Configured `HealthChecks` and `HealthChecksUI`
+* Configured Unit Test Project
+* Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
 
 ## Install the Template from .NET CLI
 1. Install the latest [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
@@ -96,6 +120,7 @@ If you have a different `database` and `table` name then you need to change the 
 ## Contributors
 
 * **Vincent Maverick Durano** - [Blog](http://vmsdurano.com/)
+* **Jude Daryl Clarino** - [Blog](https://judedaryl.github.io/)
 * **Bruno Renato Feliciano** - [Link](https://www.linkedin.com/in/brunorfeliciano/)
 
 ## License
