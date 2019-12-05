@@ -33,7 +33,7 @@ There are two ways to install the template:
 
 Keep in mind that you can always replace and choose whatever framework you want to use for your `API`. After all, the template is just a skeleton for your project structure with default preconfigured middlewares. For example, you can always replace `Dapper` with `Entity Framework Core`, `PetaPoco`, etc. and configure them yourself. You can also replace `Serilog` with whatever logging frameworks and providers you want that works with `ASP.NET Core` - the choice is yours.
 
-# Key Take Aways
+# Key Takeaways
 Here's the list of the good stuff that you can get when using the template:
 
 * Configured Sample Code for database CRUD operations.
