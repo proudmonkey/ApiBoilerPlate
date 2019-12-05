@@ -6,7 +6,7 @@ A simple yet organized [project template](https://marketplace.visualstudio.com/i
 
 If you are looking for a project template for ASP.NET Core API that you can reuse across your team, or if you are new to ASP.NET Core and would like to get up to speed on how it works without having you to configure most of the basic features that an API will have, then this is for you.
 
-# How to get it?
+# How To Get It?
 There are two ways to install the template:
 * From Nuget with .NET CLI: [ApiBoilerPlate.AspNetCore](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 * From VSIX Market Place with Visual Studio: [ApiBoilerPlate.AspNetCore](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt)
@@ -61,11 +61,11 @@ Here's the list of the good stuff that you can get when using the template:
 2. Run `dotnet new -i apiboilerplate.aspnetcore`. This will install the template in your machine.
 3. Run `dotnet new apiboilerplate --name "MyAPI" -o samples`. This will generate the project template named `MyAPI` within the `samples` directory.
 
-Once installed, you should see this output below:
+Once installed, you should see the following console message:
 
 > The template "ASP.NET Core API Template for .NET Core 3.x" was created successfully.  
 
-## Install the Template from the Visual Studio Marketplace
+## Install the Template from Visual Studio Marketplace
 
 1. Fire up Visual Studio 2019, click `Continue without code` link.
 2. On the `Extensions` menu, click `Manage Extensions`.
@@ -84,7 +84,7 @@ Alternatively, you can `download` and `install` the VSIX Extension directly at t
 4. Name your project to whatever you like and then click `Create`.
 5. Visual Studio should generate the files for you.
 
-## Steps to run the template
+## Steps to Run the Template
 
 **STEP 1:** Create a Test local Database:
 
