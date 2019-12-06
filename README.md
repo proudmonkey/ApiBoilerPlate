@@ -67,6 +67,8 @@ Once installed, you should see the following console message:
 
 ## Install the Template from Visual Studio Marketplace
 
+**Note**: If you are using the previous version of the template, make sure to uninstall it first before you install the latest version.
+
 1. Fire up Visual Studio 2019, click `Continue without code` link.
 2. On the `Extensions` menu, click `Manage Extensions`.
 3. Click `Online` and then search for `ApiBoilerPlate`.
