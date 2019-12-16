@@ -124,7 +124,7 @@ If you have a different `database` and `table` name then you need to change the 
 
 * **Vincent Maverick Durano** - [Blog](http://vmsdurano.com/)
 * **Jude Daryl Clarino** - [Blog](https://judedaryl.github.io/)
-* **Bruno Renato Feliciano** - [Link](https://www.linkedin.com/in/brunorfeliciano/)
+* **Bruno Renato Feliciano** - [LinkedIn](https://www.linkedin.com/in/brunorfeliciano/)
 
 ## License
 
