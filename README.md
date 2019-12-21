@@ -120,6 +120,11 @@ If you have a different `database` and `table` name then you need to change the 
 * [ApiBoilerPlate: A Project Template for Building ASP.NET Core APIs](http://vmsdurano.com/apiboilerplate-a-project-template-for-building-asp-net-core-apis/)
 * [ApiBoilerPlate: New Features and Improvements for Building ASP.NET Core 3 APIs](http://vmsdurano.com/apiboilerplate-new-features-and-improvements-for-building-asp-net-core-3-apis/)
 
+## Give a Star! :star:
+Feel free to request an issue on github if you find bugs or request a new feature. Your valuable feedback is much appreciated to better improve this project. If you find this useful, please give it a star to show your support for this project.
+
+Thank you!
+
 ## Contributors
 
 * **Vincent Maverick Durano** - [Blog](http://vmsdurano.com/)
