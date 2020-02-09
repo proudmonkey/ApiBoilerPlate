@@ -17,12 +17,12 @@ There are two ways to install the template:
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) - For building RESTful APIs
 * [Dapper](https://dapper-tutorial.net/dapper) - For data access.
 * [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
-* [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request exceptions and consistent HTTP response format.
+* [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request `Exceptions` and consistent `HTTP` response format.
 * [AutoWrapper.Server](https://github.com/proudmonkey/AutoWrapper.Server) - For unwrapping the `Result` attribute from AutoWrapper's `ApiResponse` output.
-* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For secured API documentation.
+* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) - For securing API documentation.
 * [FluentValidation.AspNetCore](https://fluentvalidation.net/aspnet) - For Model validations
 * [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore) - For logging capabilities
-* [IdentityServer4.AccessTokenValidation](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation) - For JWT Authentication handling
+* [IdentityServer4.AccessTokenValidation](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation) - For `JWT` Authentication handling
 * [Microsoft.Extensions.Http.Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory) - For handling `HttpClient` Resilience and Transient fault-handling
 * [AspNetCoreRateLimit](https://github.com/stefanprodan/AspNetCoreRateLimit) - For controlling the rate of requests that clients can make to an external `API` based on IP address or client ID.
 * [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) - For performing health checks
@@ -41,17 +41,17 @@ Here's the list of the good stuff that you can get when using the template:
 * Configured Logging using `Serilog`.
 * Configured `AutoMapper` for mapping entity models to DTOs.
 * Configured `FluentValidation` for DTO validations.
-* Configured `AutoWrapper` for handling request exceptions and consistent Http response format.
+* Configured `AutoWrapper` for handling request `Exceptions` and consistent `HTTP` response format.
 * Configured `AutoWrapper.Server` for unwrapping the `Result` attribute from AutoWrapper's `ApiResponse` output.
 * Configured `Swagger` API Documentation.
 * Configured `CORS`.
 * Configured `JWT` Authorization and Validation
-* Configured Sample Code for Requesting Client Credentials Token
-* Configured Swagger to secure API documentation with Bearer Authorization.
+* Configured Sample Code for Requesting Client Credentials `Token`
+* Configured Swagger to secure `API` documentation with `Bearer Authorization`.
 * Configured Sample Code for connecting Protected External APIs.
-* Configured Sample Code for implementing custom API Pagination.
+* Configured Sample Code for implementing custom `API` Pagination.
 * Configured `HttpClient` Resilience and Transient fault-handling
-* Configured Http Request Rate Limiter
+* Configured `Http` Request Rate Limiter
 * Configured `HealthChecks` and `HealthChecksUI`
 * Configured Unit Test Project
 * Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
