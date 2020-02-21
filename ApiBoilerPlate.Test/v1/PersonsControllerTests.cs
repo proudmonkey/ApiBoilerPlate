@@ -40,14 +40,14 @@ namespace ApiBoilerPlate.Test.v1
             {
                 new Person()
                 {
-                    ID = 1,
+                    Id = 1,
                     FirstName = "Vynn Markus",
                     LastName = "Durano",
                     DateOfBirth = Convert.ToDateTime("01/15/2016")
                 },
                 new Person()
                 {
-                    ID = 2,
+                    Id = 2,
                     FirstName = "Vianne Maverich",
                     LastName = "Durano",
                     DateOfBirth = Convert.ToDateTime("02/15/2016")
@@ -115,7 +115,7 @@ namespace ApiBoilerPlate.Test.v1
             long id = 1;
 
             _mockDataManager.Setup(manager => manager.GetByIdAsync(id))
-               .ReturnsAsync(GetFakePersonLists().Single(p => p.ID.Equals(id)));
+               .ReturnsAsync(GetFakePersonLists().Single(p => p.Id.Equals(id)));
 
             var person = await _controller.Get(id);
             Assert.IsType<PersonResponse>(person);
