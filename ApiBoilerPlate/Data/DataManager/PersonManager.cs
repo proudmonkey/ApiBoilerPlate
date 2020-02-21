@@ -21,7 +21,7 @@ namespace ApiBoilerPlate.Data.DataManager
         public async Task<(IEnumerable<Person> Persons, Pagination Pagination)> GetPersonsAsync(UrlQueryParameters urlQueryParameters)
         {
             IEnumerable<Person> persons;
-            int recordCount = 0;
+            int recordCount = default;
 
             ////For PosgreSql
             //var query = @"SELECT ID, FirstName, LastName, DateOfBirth FROM Person
@@ -42,7 +42,7 @@ namespace ApiBoilerPlate.Data.DataManager
             if (urlQueryParameters.IncludeCount)
             {
                 query += " SELECT COUNT(ID) FROM Person";
-                var pagedRows = await DbQueryMultipleAsync<Person>(query, param);
+                var pagedRows = await DbQueryMultipleAsync<Person, int>(query, param);
 
                 persons = pagedRows.Data;
                 recordCount = pagedRows.RecordCount;

@@ -19,16 +19,13 @@ namespace ApiBoilerPlate.Data
             _config = config;
         }
 
-        internal IDbConnection DbConnection => new SqlConnection(_config.GetConnectionString("SQLDBConnectionString"));
+        internal IDbConnection DbConnection => new SqlConnection(DbConnectionString);
 
         public virtual async Task<IEnumerable<T>> DbQueryAsync<T>(string sql, object parameters = null)
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                if (parameters == null)
-                    return await dbCon.QueryAsync<T>(sql);
-    
-                return await dbCon.QueryAsync<T>(sql, parameters);
+                return parameters == null ? await dbCon.QueryAsync<T>(sql) : await dbCon.QueryAsync<T>(sql, parameters);
             }
         }
         public virtual async Task<T> DbQuerySingleAsync<T>(string sql, object parameters)
@@ -59,24 +56,21 @@ namespace ApiBoilerPlate.Data
         {
             using (IDbConnection dbCon = DbConnection)
             {
-                if (parameters == null)
-                    return await dbCon.ExecuteScalarAsync<T>(sql);
-
-                return await dbCon.ExecuteScalarAsync<T>(sql, parameters);
+                return parameters == null ? await dbCon.ExecuteScalarAsync<T>(sql) : await dbCon.ExecuteScalarAsync<T>(sql, parameters);
             }
         }
 
-        public virtual async Task<(IEnumerable<T> Data, int RecordCount)> DbQueryMultipleAsync<T>(string sql, object parameters = null)
+        public virtual async Task<(IEnumerable<T> Data, TRecordCount RecordCount)> DbQueryMultipleAsync<T, TRecordCount>(string sql, object parameters = null)
         {
             IEnumerable<T> data = null;
-            int totalRecords = 0;
+            TRecordCount totalRecords = default;
 
             using (IDbConnection dbCon = DbConnection)
             {
                 using (GridReader results = await dbCon.QueryMultipleAsync(sql, parameters))
                 {
                     data = await results.ReadAsync<T>();
-                    totalRecords = await results.ReadSingleAsync<int>();
+                    totalRecords = await results.ReadSingleAsync<TRecordCount>();
                 }
             }
 
