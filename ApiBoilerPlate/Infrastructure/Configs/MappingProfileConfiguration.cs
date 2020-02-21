@@ -12,7 +12,7 @@ namespace ApiBoilerPlate.Infrastructure.Configs
         {
             CreateMap<Person, CreatePersonRequest>().ReverseMap();
             CreateMap<Person, UpdatePersonRequest>().ReverseMap();
-            CreateMap<Person, PersonResponse>().ReverseMap();
+            CreateMap<Person, PersonQueryResponse>().ReverseMap();
         }
     }
 }

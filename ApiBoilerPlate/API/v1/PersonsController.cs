@@ -31,10 +31,10 @@ namespace ApiBoilerPlate.API.v1
 
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
-        public async Task<IEnumerable<PersonResponse>> Get()
+        public async Task<IEnumerable<PersonQueryResponse>> Get()
         {
             var data = await _personManager.GetAllAsync();
-            var persons = _mapper.Map<IEnumerable<PersonResponse>>(data);
+            var persons = _mapper.Map<IEnumerable<PersonQueryResponse>>(data);
 
             return persons;
         }
@@ -42,10 +42,10 @@ namespace ApiBoilerPlate.API.v1
         [Route("paged")]
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
-        public async Task<IEnumerable<PersonResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
+        public async Task<IEnumerable<PersonQueryResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
             var data =  await _personManager.GetPersonsAsync(urlQueryParameters);
-            var persons = _mapper.Map<IEnumerable<PersonResponse>>(data.Persons);
+            var persons = _mapper.Map<IEnumerable<PersonQueryResponse>>(data.Persons);
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(data.Pagination));
 
@@ -56,10 +56,10 @@ namespace ApiBoilerPlate.API.v1
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
-        public async Task<PersonResponse> Get(long id)
+        public async Task<PersonQueryResponse> Get(long id)
         {
             var person = await _personManager.GetByIdAsync(id);
-            return person != null ? _mapper.Map<PersonResponse>(person) : throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
+            return person != null ? _mapper.Map<PersonQueryResponse>(person) : throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
         }
 
         [HttpPost]

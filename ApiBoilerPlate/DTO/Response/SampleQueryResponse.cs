@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiBoilerPlate.DTO.Response
 {
-    public class SampleResponse
+    public class SampleQueryResponse
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

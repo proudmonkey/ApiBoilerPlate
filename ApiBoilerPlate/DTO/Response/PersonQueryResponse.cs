@@ -2,7 +2,7 @@
 
 namespace ApiBoilerPlate.DTO.Response
 {
-    public class PersonResponse
+    public class PersonQueryResponse
     {
         public long ID { get; set; }
         public string FirstName { get; set; }

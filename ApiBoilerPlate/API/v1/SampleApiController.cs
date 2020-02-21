@@ -30,7 +30,7 @@ namespace ApiBoilerPlate.API.v1
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         public async Task<ApiResponse> Get(long id)
         {
-            return new ApiResponse(await _sampleApiConnect.GetDataAsync<SampleResponse>($"/api/v1/sample/{id}"));
+            return new ApiResponse(await _sampleApiConnect.GetDataAsync<SampleQueryResponse>($"/api/v1/sample/{id}"));
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace ApiBoilerPlate.API.v1
         {
             if (!ModelState.IsValid) { throw new ApiException(ModelState.AllErrors()); }
 
-            return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleResponse,SampleRequest>("/api/v1/sample", createRequest));      
+            return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleQueryResponse,SampleRequest>("/api/v1/sample", createRequest));      
         }
     }
 }

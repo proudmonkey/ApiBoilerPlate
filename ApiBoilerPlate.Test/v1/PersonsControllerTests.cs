@@ -105,7 +105,7 @@ namespace ApiBoilerPlate.Test.v1
             var result = await _controller.Get();
 
             // Assert
-            var persons = Assert.IsType<List<PersonResponse>>(result);
+            var persons = Assert.IsType<List<PersonQueryResponse>>(result);
             Assert.Equal(2, persons.Count);
         }
 
@@ -118,7 +118,7 @@ namespace ApiBoilerPlate.Test.v1
                .ReturnsAsync(GetFakePersonLists().Single(p => p.Id.Equals(id)));
 
             var person = await _controller.Get(id);
-            Assert.IsType<PersonResponse>(person);
+            Assert.IsType<PersonQueryResponse>(person);
         }
 
         [Fact]
