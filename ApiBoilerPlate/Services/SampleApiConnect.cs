@@ -30,7 +30,7 @@ namespace ApiBoilerPlate.Services
             if (!httpResponse.IsSuccessStatusCode)
             {
                 _logger.Log(LogLevel.Warning, $"[{httpResponse.StatusCode}] An error occured while requesting external api.");
-                return default(SampleResponse);
+                return default;
             }
 
             var jsonString = await httpResponse.Content.ReadAsStringAsync();
@@ -46,7 +46,7 @@ namespace ApiBoilerPlate.Services
             if (!httpResponse.IsSuccessStatusCode)
             {
                 _logger.Log(LogLevel.Warning, $"[{httpResponse.StatusCode}] An error occured while requesting external api.");
-                return default(SampleResponse);
+                return default;
             }
 
             var jsonString = await httpResponse.Content.ReadAsStringAsync();

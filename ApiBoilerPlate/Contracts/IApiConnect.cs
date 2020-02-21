@@ -4,7 +4,7 @@ namespace ApiBoilerPlate.Contracts
 {
     public interface IApiConnect
     {
-        Task<T> PostDataAsync<T,T2>(string endPoint, T2 dto);
-        Task<T> GetDataAsync<T>(string endPoint);
+        Task<TResponse> PostDataAsync<TResponse, TRequest>(string endPoint, TRequest request);
+        Task<TResponse> GetDataAsync<TResponse>(string endPoint);
     }
 }

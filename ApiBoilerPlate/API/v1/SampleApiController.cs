@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using static Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace ApiBoilerPlate.API.v1
 {
@@ -26,21 +27,18 @@ namespace ApiBoilerPlate.API.v1
 
         [Route("{id:long}")]
         [HttpGet]
+        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         public async Task<ApiResponse> Get(long id)
         {
-            if (ModelState.IsValid)
-                return new ApiResponse(await _sampleApiConnect.GetDataAsync<SampleResponse>($"/api/v1/sample/{id}"));
-            else
-                throw new ApiException(ModelState.AllErrors());
+            return new ApiResponse(await _sampleApiConnect.GetDataAsync<SampleResponse>($"/api/v1/sample/{id}"));
         }
 
         [HttpPost]
-        public async Task<ApiResponse> Post([FromBody] SampleRequest dto)
+        public async Task<ApiResponse> Post([FromBody] SampleRequest createRequest)
         {
-            if (ModelState.IsValid)
-                return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleResponse,SampleRequest>("/api/v1/sample", dto));
-            else
-                throw new ApiException(ModelState.AllErrors());
+            if (!ModelState.IsValid) { throw new ApiException(ModelState.AllErrors()); }
+
+            return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleResponse,SampleRequest>("/api/v1/sample", createRequest));      
         }
     }
 }
