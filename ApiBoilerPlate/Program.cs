@@ -10,21 +10,21 @@ namespace ApiBoilerPlate
     {
         public static void Main(string[] args)
         {
-            // Init Serilog configuration
+            // Init Serilog JSON configuration
             var configuration = new ConfigurationBuilder()
-              .AddJsonFile("appsettings.logs.json")
+              .AddJsonFile("applogsettings.json")
               .Build();
 
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
 
             try
             {
-                Log.Information("Starting web host");
+                Log.Information("Starting web host.");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Host terminated unexpectedly");
+                Log.Fatal(ex, "Host terminated unexpectedly.");
             }
             finally
             {
@@ -41,9 +41,9 @@ namespace ApiBoilerPlate
                 .ConfigureAppConfiguration((hostContext, config) =>
                 {
                     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                    var settings = env == null ? "appsettings.json" : $"appsettings.{env}.json";
+                    var settings = (env == "Development" || env == null) ? "appsettings.json" : $"appsettings.{env}.json";
                     config.AddJsonFile(settings, optional: true, reloadOnChange: true);
                 })
-                .UseSerilog();
+               .UseSerilog();
     }
 }

@@ -4,7 +4,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:64808",
+      "applicationUrl": "http://localhost:3000",
       "sslPort": 44321
     }
   },
@@ -12,18 +12,18 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/v1/persons",
+      "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "TEST"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "ApiBoilerPlate": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/v1/persons",
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "TEST"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
