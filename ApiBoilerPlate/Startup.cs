@@ -32,7 +32,7 @@ namespace ApiBoilerPlate
 
             //Register MVC/Web API, NewtonsoftJson and add FluentValidation Support
             services.AddControllers()
-                    .AddNewtonsoftJson()
+                    .AddNewtonsoftJson(ops => { ops.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; })
                     .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
 
             //Register Automapper
@@ -71,7 +71,7 @@ namespace ApiBoilerPlate
 
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper
-            app.UseApiResponseAndExceptionWrapper();
+            app.UseApiResponseAndExceptionWrapper(new AutoWrapperOptions { IsDebug = true, UseApiProblemDetailsException = true });
 
             //Enable AspNetCoreRateLimit
             app.UseIpRateLimiting();

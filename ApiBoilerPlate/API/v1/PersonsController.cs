@@ -30,7 +30,7 @@ namespace ApiBoilerPlate.API.v1
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<PersonQueryResponse>), Status200OK)]
         public async Task<IEnumerable<PersonQueryResponse>> Get()
         {
             var data = await _personManager.GetAllAsync();
@@ -41,7 +41,7 @@ namespace ApiBoilerPlate.API.v1
 
         [Route("paged")]
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<PersonQueryResponse>), Status200OK)]
         public async Task<IEnumerable<PersonQueryResponse>> Get([FromQuery] UrlQueryParameters urlQueryParameters)
         {
             var data =  await _personManager.GetPersonsAsync(urlQueryParameters);
@@ -54,12 +54,13 @@ namespace ApiBoilerPlate.API.v1
 
         [Route("{id:long}")]
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
+        [ProducesResponseType(typeof(PersonQueryResponse), Status200OK)]
+        [ProducesResponseType(typeof(PersonQueryResponse), Status404NotFound)]
         public async Task<PersonQueryResponse> Get(long id)
         {
             var person = await _personManager.GetByIdAsync(id);
-            return person != null ? _mapper.Map<PersonQueryResponse>(person) : throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound);
+            return person != null ? _mapper.Map<PersonQueryResponse>(person) 
+                                  : throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound);
         }
 
         [HttpPost]
@@ -67,7 +68,7 @@ namespace ApiBoilerPlate.API.v1
         [ProducesResponseType(typeof(ApiResponse), Status400BadRequest)]
         public async Task<ApiResponse> Post([FromBody] CreatePersonRequest createRequest)
         {
-            if (!ModelState.IsValid) { throw new ApiException(ModelState.AllErrors());  }
+            if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState);  }
 
             var person = _mapper.Map<Person>(createRequest);
             return new ApiResponse("Record successfully created.", await _personManager.CreateAsync(person), Status201Created);     
@@ -85,8 +86,12 @@ namespace ApiBoilerPlate.API.v1
             var person = _mapper.Map<Person>(updateRequest);
             person.Id = id;
 
-            if (await _personManager.UpdateAsync(person)) { return new ApiResponse($"Record with Id: {id} sucessfully updated.", true); }
-            else { throw new ApiException($"Record with Id: {id} does not exist.", Status404NotFound); }
+            if (await _personManager.UpdateAsync(person)) { 
+                return new ApiResponse($"Record with Id: {id} sucessfully updated.", true); 
+            }
+            else { 
+                throw new ApiProblemDetailsException($"Record with Id: {id} does not exist.", Status404NotFound); 
+            }
         }
 
 
@@ -96,8 +101,12 @@ namespace ApiBoilerPlate.API.v1
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
         public async Task<ApiResponse> Delete(long id)
         {
-            if (await _personManager.DeleteAsync(id)) { return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true); }
-            else { throw new ApiException($"Record with id: {id} does not exist.", Status404NotFound); }
+            if (await _personManager.DeleteAsync(id)) { 
+                return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true); 
+            }
+            else { 
+                throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound); 
+            }
         }
     }
 }

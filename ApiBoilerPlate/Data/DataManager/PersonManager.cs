@@ -101,7 +101,7 @@ namespace ApiBoilerPlate.Data.DataManager
             return await DbExecuteScalarAsync("SELECT COUNT(1) FROM Person WHERE ID = @ID", new { id });
         }
 
-        public async Task<bool> ExecuteWithTransactionScope(object entity)
+        public async Task<bool> ExecuteWithTransactionScope()
         {
 
             using (var dbCon = new SqlConnection(DbConnectionString))
