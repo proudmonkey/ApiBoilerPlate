@@ -16,6 +16,7 @@
 *.sln.docstates
 /Logs/**
 !/Logs/**/
+**/.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
