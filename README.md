@@ -11,7 +11,7 @@ There are two ways to install the template:
 * From Nuget with .NET CLI: [ApiBoilerPlate.AspNetCore](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 * From VSIX Market Place with Visual Studio: [ApiBoilerPlate.AspNetCore](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt)
 
-## Tools and Frameworks Used
+# Tools and Frameworks Used
 
 * [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) - For building RESTful APIs
@@ -56,7 +56,7 @@ Here's the list of the good stuff that you can get when using the template:
 * Configured Unit Test Project
 * Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
 
-## Install the Template from .NET CLI
+# Install the Template from .NET CLI
 1. Install the latest [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 2. Run `dotnet new -i apiboilerplate.aspnetcore`. This will install the template in your machine.
 3. Run `dotnet new apiboilerplate --name "MyAPI" -o samples`. This will generate the project template named `MyAPI` within the `samples` directory.
@@ -65,7 +65,7 @@ Once installed, you should see the following console message:
 
 > The template "ASP.NET Core API Template for .NET Core 3.x" was created successfully.  
 
-## Install the Template from Visual Studio Marketplace
+# Install the Template from Visual Studio Marketplace
 
 **Note**: If you are using the previous version of the template, make sure to uninstall it first before you install the latest version.
 
@@ -78,7 +78,7 @@ To complete the installation, close all instances of Visual Studio.
 
 Alternatively, you can `download` and `install` the VSIX Extension directly at the following link: https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt
 
-## Create a new Project from ApiBoilerPlate Extension
+# Create a new Project from ApiBoilerPlate Extension
 
 1. Open Visual Studio 2019 and then select `Create New Project` box
 2. The newly installed template should appear at the top. You can also type "`ApiBoilerPlate`" in the search bar.
@@ -86,7 +86,7 @@ Alternatively, you can `download` and `install` the VSIX Extension directly at t
 4. Name your project to whatever you like and then click `Create`.
 5. Visual Studio should generate the files for you.
 
-## Steps to Run the Template
+# Steps to Run the Template
 
 **STEP 1:** Create a Test local Database:
 
@@ -115,18 +115,16 @@ If you follow step 1, then you can skip this step and run the application right 
 
 If you have a different `database` and `table` name then you need to change the `connectionString` in `appsettings.json` that is pointing to the newly created database. You can get the `connectionString` values in the `properties` window of the "TestDB" database in Visual Studio.
 
-## Walkthrough
+# Walkthrough
 
 * [ApiBoilerPlate: A Project Template for Building ASP.NET Core APIs](http://vmsdurano.com/apiboilerplate-a-project-template-for-building-asp-net-core-apis/)
 * [ApiBoilerPlate: New Features and Improvements for Building ASP.NET Core 3 APIs](http://vmsdurano.com/apiboilerplate-new-features-and-improvements-for-building-asp-net-core-3-apis/)
 * [IdentityServer4: Building a Simple Token Server and Protecting Your ASP.NET Core APIs with JWT](http://vmsdurano.com/apiboilerplate-and-identityserver4-access-control-for-apis/)
 
-## Give a Star! :star:
+# Give a Star! :star:
 Feel free to request an issue on github if you find bugs or request a new feature. Your valuable feedback is much appreciated to better improve this project. If you find this useful, please give it a star to show your support for this project.
 
-Thank you!
-
-## Contributors
+# Contributors
 
 * **Vincent Maverick Durano** - [Blog](http://vmsdurano.com/)
 * **Jude Daryl Clarino** - [Blog](https://judedaryl.github.io/)
@@ -141,3 +139,6 @@ If you find this project useful — or just feeling generous, consider buying me
 |               |               |
 | ------------- |:-------------:|
 |   <a href="https://www.paypal.me/vmsdurano"><img src="https://github.com/proudmonkey/Resources/blob/master/donate_paypal.svg" height="40"></a>   | [![BMC](https://github.com/proudmonkey/Resources/blob/master/donate_coffee.png)](https://www.buymeacoffee.com/ImP9gONBW) |
+
+
+Thank you!
