@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,6 @@ namespace ApiBoilerPlate
         {
             var builder = CreateHostBuilder(args).Build();
             var logger = builder.Services.GetService<ILogger<Program>>();
-
             try
             {
                 logger.LogInformation("Starting web host");
@@ -27,6 +27,9 @@ namespace ApiBoilerPlate
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureHostConfiguration(configBuilder =>                
+                    configBuilder.AddJsonFile("appsettings.Logs.json", true, true)
+                )
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
