@@ -13,8 +13,8 @@ There are two ways to install the template:
 
 # Tools and Frameworks Used
 
-* [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
-* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) - For building RESTful APIs
+* [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core)
+* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) - For building RESTful APIs
 * [Dapper](https://dapper-tutorial.net/dapper) - For data access.
 * [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
 * [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request `Exceptions` and consistent `HTTP` response format.
