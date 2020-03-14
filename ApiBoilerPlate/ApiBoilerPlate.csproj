@@ -39,4 +39,10 @@
     <Folder Include="Logs\Info\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Infrastructure\HealthChecks\Ux\branding.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

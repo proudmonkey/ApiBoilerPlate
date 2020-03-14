@@ -67,7 +67,10 @@ namespace ApiBoilerPlate
             {
                 Predicate = _ => true,
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            }).UseHealthChecksUI();
+            }).UseHealthChecksUI(setup =>
+            {
+                setup.AddCustomStylesheet($"{env.ContentRootPath}/Infrastructure/HealthChecks/Ux/branding.css");
+            });
 
             //Enable AutoWrapper.Core
             //More info see: https://github.com/proudmonkey/AutoWrapper
