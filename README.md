@@ -13,8 +13,8 @@ There are two ways to install the template:
 
 # Tools and Frameworks Used
 
-* [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core)
-* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) - For building RESTful APIs
+* [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core)
+* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.1) - For building RESTful APIs
 * [Dapper](https://dapper-tutorial.net/dapper) - For data access.
 * [AutoMapper](https://github.com/AutoMapper/AutoMapper) - For mapping entity models to DTOs.
 * [AutoWrapper](https://github.com/proudmonkey/AutoWrapper) - For handling request `Exceptions` and consistent `HTTP` response format.
@@ -54,7 +54,7 @@ Here's the list of the good stuff that you can get when using the template:
 * Configured `Http` Request Rate Limiter
 * Configured `HealthChecks` and `HealthChecksUI`
 * Configured Unit Test Project
-* Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
+* [Deprecated] Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
 
 # Install the Template from .NET CLI
 1. Install the latest [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0).
