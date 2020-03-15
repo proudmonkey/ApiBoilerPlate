@@ -1,7 +1,6 @@
 ﻿using ApiBoilerPlate.Contracts;
 using ApiBoilerPlate.DTO.Request;
 using ApiBoilerPlate.DTO.Response;
-using AutoWrapper.Extensions;
 using AutoWrapper.Wrappers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +33,11 @@ namespace ApiBoilerPlate.API.v1
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
         public async Task<ApiResponse> Post([FromBody] SampleRequest createRequest)
         {
-            if (!ModelState.IsValid) { throw new ApiException(ModelState.AllErrors()); }
+            if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
             return  new ApiResponse(await _sampleApiConnect.PostDataAsync<SampleQueryResponse,SampleRequest>("/api/v1/sample", createRequest));      
         }

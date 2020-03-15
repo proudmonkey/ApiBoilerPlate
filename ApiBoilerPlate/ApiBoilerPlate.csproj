@@ -8,11 +8,11 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="3.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.0.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.0.10" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.0.11" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="3.0.0" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="AutoWrapper.Core" Version="4.0.0" />
+    <PackageReference Include="AutoWrapper.Core" Version="4.0.1" />
     <PackageReference Include="AutoWrapper.Server" Version="2.0.0" />
     <PackageReference Include="Dapper" Version="2.0.30" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />

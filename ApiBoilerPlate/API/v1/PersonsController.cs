@@ -65,7 +65,7 @@ namespace ApiBoilerPlate.API.v1
 
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponse), Status201Created)]
-        [ProducesResponseType(typeof(ApiResponse), Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
         public async Task<ApiResponse> Post([FromBody] CreatePersonRequest createRequest)
         {
             if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState);  }
@@ -78,10 +78,10 @@ namespace ApiBoilerPlate.API.v1
         [HttpPut]
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
-        [ProducesResponseType(typeof(ApiResponse), Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
         public async Task<ApiResponse> Put(long id, [FromBody] UpdatePersonRequest updateRequest)
         {
-            if (!ModelState.IsValid) { throw new ApiException(ModelState.AllErrors()); }
+            if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
 
             var person = _mapper.Map<Person>(updateRequest);
             person.Id = id;

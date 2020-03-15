@@ -124,7 +124,7 @@ namespace ApiBoilerPlate.Test.v1
         [Fact]
         public async Task GET_ById_RETURNS_NOTFOUND()
         {
-            var apiException = await Assert.ThrowsAsync<ApiException>(() => _controller.Get(10));
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Get(10));
             Assert.Equal(404, apiException.StatusCode);
         }
 
@@ -133,8 +133,8 @@ namespace ApiBoilerPlate.Test.v1
         {
             _controller.ModelState.AddModelError("DateOfBirth", "Required");
 
-            var apiException = await Assert.ThrowsAsync<ApiException>(() => _controller.Post(FakeCreateRequestObjectWithMissingAttribute()));
-            Assert.Equal(400, apiException.StatusCode);
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Post(FakeCreateRequestObjectWithMissingAttribute()));
+            Assert.Equal(422, apiException.StatusCode);
         }
 
         [Fact]
@@ -174,7 +174,7 @@ namespace ApiBoilerPlate.Test.v1
         [Fact]
         public async Task PUT_ById_RETURNS_NOTFOUND()
         {
-            var apiException = await Assert.ThrowsAsync<ApiException>(() => _controller.Put(10, FakeUpdateRequestObject()));
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Put(10, FakeUpdateRequestObject()));
             Assert.Equal(404, apiException.StatusCode);
         }
 
@@ -182,9 +182,9 @@ namespace ApiBoilerPlate.Test.v1
         public async Task PUT_ById_RETURNS_BADREQUEST()
         {
             _controller.ModelState.AddModelError("DateOfBirth", "Required");
-
-            var apiException = await Assert.ThrowsAsync<ApiException>(() => _controller.Put(10, FakeUpdateRequestObject()));
-            Assert.Equal(400, apiException.StatusCode);
+           
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Put(10, FakeUpdateRequestObject()));
+            Assert.Equal(422, apiException.StatusCode);
         }
 
         [Fact]
@@ -214,7 +214,7 @@ namespace ApiBoilerPlate.Test.v1
         [Fact]
         public async Task DELETE_ById_RETURNS_NOTFOUND()
         {
-            var apiException = await Assert.ThrowsAsync<ApiException>(() => _controller.Delete(1));
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Delete(1));
             Assert.Equal(404, apiException.StatusCode);
         }
 

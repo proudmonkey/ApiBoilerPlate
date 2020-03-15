@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29006.145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiBoilerPlate", "ApiBoilerPlate\ApiBoilerPlate.csproj", "{8275028E-5B03-4077-A8F4-848431F024E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBoilerPlate.Test", "ApiBoilerPlate.Test\ApiBoilerPlate.Test.csproj", "{96A57BE1-6DEF-491B-9DDE-6EBEB919902E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiBoilerPlate.Test", "ApiBoilerPlate.Test\ApiBoilerPlate.Test.csproj", "{96A57BE1-6DEF-491B-9DDE-6EBEB919902E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
