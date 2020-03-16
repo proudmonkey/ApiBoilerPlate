@@ -1,6 +1,8 @@
 <img align="right" src="logo.PNG" />
 
-# ApiBoilerPlate.AspNetCore [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) 
+# ApiBoilerPlate.AspNetCore 
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/vmsdurano.ApiProjVSExt?color=green)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) 
 [![Nuget](https://img.shields.io/nuget/v/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 [![Nuget](https://img.shields.io/nuget/dt/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 
