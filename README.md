@@ -1,6 +1,8 @@
 <img align="right" src="logo.PNG" />
 
-# ApiBoilerPlate.AspNetCore [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) [![Nuget](https://img.shields.io/nuget/dt/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
+# ApiBoilerPlate.AspNetCore [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/vmsdurano.ApiProjVSExt?color=green)](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) 
+[![Nuget](https://img.shields.io/nuget/v/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
+[![Nuget](https://img.shields.io/nuget/dt/ApiBoilerPlate.AspNetCore?color=blue)](https://www.nuget.org/packages/ApiBoilerPlate.AspNetCore)
 
 A simple yet organized [project template](https://marketplace.visualstudio.com/items?itemName=vmsdurano.ApiProjVSExt) for building ASP.NET Core APIs using .NET Core 3.x (the latest/fastest version of .NET Core to date) with preconfigured tools and frameworks. It features most of the functionalities that an API will have such as database CRUD operations, Token-based Authorization, Http Response format consistency, Global exception handling, Logging, Http Request rate limiting, HealthChecks and many more. The goal is to help you get up to speed when setting up the core structure of your app and its dependencies when spinning up a new ASP.NET Core API project. This enables you to focus on implementing business specific code requirements without you having to copy and paste the core structure of your project, common features, and installing its dependencies all over again. This will speed up your development time while enforcing standard project structure with its dependencies and configurations for all your apps.
 
