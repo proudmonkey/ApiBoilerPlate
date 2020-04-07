@@ -57,7 +57,7 @@ Here's the list of the good stuff that you can get when using the template:
 * Configured `HttpClient` Resilience and Transient fault-handling
 * Configured `Http` Request Rate Limiter
 * Configured `HealthChecks` and `HealthChecksUI`
-* Configured Unit Test Project
+* Configured Unit Test Project with `xUnit`
 * [Deprecated] Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
 
 # Install the Template from .NET CLI
