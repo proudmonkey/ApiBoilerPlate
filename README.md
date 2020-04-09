@@ -49,15 +49,15 @@ Here's the list of the good stuff that you can get when using the template:
 * Configured `AutoWrapper.Server` for unwrapping the `Result` attribute from AutoWrapper's `ApiResponse` output.
 * Configured `Swagger` API Documentation.
 * Configured `CORS`.
-* Configured `JWT` Authorization and Validation
-* Configured Sample Code for Requesting Client Credentials `Token`
+* Configured `JWT` Authorization and Validation.
+* Configured Sample Code for Requesting Client Credentials `Token`.
 * Configured Swagger to secure `API` documentation with `Bearer Authorization`.
 * Configured Sample Code for connecting Protected External APIs.
 * Configured Sample Code for implementing custom `API` Pagination.
-* Configured `HttpClient` Resilience and Transient fault-handling
-* Configured `Http` Request Rate Limiter
-* Configured `HealthChecks` and `HealthChecksUI`
-* Configured Unit Test Project with `xUnit`
+* Configured `HttpClient` Resilience and Transient fault-handling.
+* Configured `Http` Request Rate Limiter.
+* Configured `HealthChecks` and `HealthChecksUI`.
+* Configured Unit Test Project with `xUnit`.
 * [Deprecated] Configured Sample Code for Worker service. For handling extensive process in the background, you may want to look at the [Worker Template](https://github.com/judedaryl/pubsub-worker-starter) created by [Jude Daryl Clarino](https://judedaryl.github.io/). The template was also based on `ApiBoilerPlate`.
 
 # Install the Template from .NET CLI
@@ -136,7 +136,7 @@ Feel free to request an issue on github if you find bugs or request a new featur
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
 
 # Donate
 If you find this project useful — or just feeling generous, consider buying me a beer or a coffee. Cheers! :beers: :coffee:
