@@ -21,7 +21,8 @@ namespace ApiBoilerPlate.Infrastructure.Installers
                     Scheme = "Bearer",
                     Description = "Enter 'Bearer' following by space and JWT.",
                     Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
+                    Type = SecuritySchemeType.ApiKey,
+                    In = ParameterLocation.Header,
 
                 });
 
